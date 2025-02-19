@@ -64,5 +64,16 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "test": [
+            "php vendor/bin/phpunit",
+            "php vendor/bin/phpstan analyse --memory-limit 1G"
+        ],
+        "cs": "php vendor/bin/php-cs-fixer fix --dry-run",
+        "cs-fix": "php vendor/bin/php-cs-fixer fix",
+        "rector": "php vendor/bin/rector process src tests --dry-run",
+        "rector-fix": "php vendor/bin/rector process src tests",
+        "phpstan": "php vendor/bin/phpstan analyse --memory-limit 1G"
     }
 }

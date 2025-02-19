@@ -32,4 +32,12 @@ final readonly class Audio implements Content
             ],
         ];
     }
+
+    /**
+     * @return array<mixed|string,mixed>
+     */
+    public function accept(ContentVisitor $visitor): array
+    {
+        return $visitor->visitAudio($this);
+    }
 }

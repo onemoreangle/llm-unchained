@@ -68,4 +68,12 @@ final readonly class UserMessage implements MessageInterface
 
         return $array;
     }
+
+    /**
+     * @return array<mixed|string,mixed>
+     */
+    public function accept(MessageVisitor $visitor): array
+    {
+        return $visitor->visitUserMessage($this);
+    }
 }
