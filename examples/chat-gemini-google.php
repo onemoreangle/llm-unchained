@@ -1,6 +1,6 @@
 <?php
 
-use PhpLlm\LlmChain\Bridge\Google\Gemini;
+use PhpLlm\LlmChain\Bridge\Google\GoogleModel;
 use PhpLlm\LlmChain\Bridge\Google\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
 use PhpLlm\LlmChain\Model\Message\Message;
@@ -16,7 +16,7 @@ if (empty($_ENV['GOOGLE_API_KEY'])) {
 }
 
 $platform = PlatformFactory::create($_ENV['GOOGLE_API_KEY']);
-$llm = new Gemini(Gemini::GEMINI_2_FLASH);
+$llm = new GoogleModel(GoogleModel::GEMINI_2_FLASH);
 
 $chain = new Chain($platform, $llm);
 $messages = new MessageBag(

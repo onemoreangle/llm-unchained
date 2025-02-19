@@ -10,9 +10,13 @@ use PhpLlm\LlmChain\Model\Model;
 use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
 use PhpLlm\LlmChain\Model\Response\StreamResponse;
 use PhpLlm\LlmChain\Model\Response\TextResponse;
+use PhpLlm\LlmChain\Model\Response\ToolCall;
+use PhpLlm\LlmChain\Model\Response\ToolCallResponse;
 use PhpLlm\LlmChain\Platform\ModelClient;
 use PhpLlm\LlmChain\Platform\ResponseConverter;
+use Symfony\Component\HttpClient\Chunk\ServerSentEvent;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
+use Symfony\Component\HttpClient\Exception\JsonException;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
@@ -29,14 +33,13 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
     public function __construct(
         HttpClientInterface $httpClient,
         #[\SensitiveParameter] private string $apiKey,
-        private GooglePromptConverter $promptConverter = new GooglePromptConverter(),
     ) {
         $this->httpClient = $httpClient instanceof EventSourceHttpClient ? $httpClient : new EventSourceHttpClient($httpClient);
     }
 
     public function supports(Model $model, array|string|object $input): bool
     {
-        return $model instanceof Gemini && $input instanceof MessageBagInterface;
+        return $model instanceof GoogleModel && $input instanceof MessageBagInterface;
     }
 
     /**
@@ -46,20 +49,13 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
     {
         Assert::isInstanceOf($input, MessageBagInterface::class);
 
-        $url = sprintf(
-            'https://generativelanguage.googleapis.com/v1beta/models/%s:%s',
-            $model->getVersion(),
-            $options['stream'] ?? false ? 'streamGenerateContent' : 'generateContent',
-        );
+        $body = new GoogleRequestBodyProducer($input, $options);
 
-        $generationConfig = ['generationConfig' => $options];
-        unset($generationConfig['generationConfig']['stream']);
-
-        return $this->httpClient->request('POST', $url, [
+        return $this->httpClient->request('POST', sprintf('https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent', $model->getVersion()), [
             'headers' => [
                 'x-goog-api-key' => $this->apiKey,
             ],
-            'json' => array_merge($generationConfig, $this->promptConverter->convertToPrompt($input)),
+            'json' => $body,
         ]);
     }
 
@@ -78,50 +74,65 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
 
         $data = $response->toArray();
 
-        if (!isset($data['candidates'][0]['content']['parts'][0]['text'])) {
-            throw new RuntimeException('Response does not contain any content');
+        if (!isset($data['candidates'][0])) {
+            throw new RuntimeException('Response does not contain any candidates');
         }
 
-        return new TextResponse($data['candidates'][0]['content']['parts'][0]['text']);
+        $candidate = $data['candidates'][0];
+
+        // Handle function call response
+        if (isset($candidate['content']['parts'][0]['functionCall'])) {
+            $functionCall = $candidate['content']['parts'][0]['functionCall'];
+
+            $toolCall = new ToolCall(
+                id: uniqid('google-'), // Google doesn't provide IDs
+                name: $functionCall['name'],
+                arguments: (array) $functionCall['args']
+            );
+
+            return new ToolCallResponse($toolCall);
+        }
+
+        // Regular text response
+        if (isset($candidate['content']['parts'][0]['text'])) {
+            return new TextResponse($candidate['content']['parts'][0]['text']);
+        }
+
+        throw new RuntimeException('Response format not supported');
     }
 
     private function convertStream(ResponseInterface $response): \Generator
     {
-        foreach ((new EventSourceHttpClient())->stream($response) as $chunk) {
-            if ($chunk->isFirst() || $chunk->isLast()) {
+        foreach ($this->httpClient->stream($response) as $chunk) {
+            if (!$chunk instanceof ServerSentEvent || '[DONE]' === $chunk->getData()) {
                 continue;
             }
 
-            $jsonDelta = trim($chunk->getContent());
-
-            // Remove leading/trailing brackets
-            if (str_starts_with($jsonDelta, '[') || str_starts_with($jsonDelta, ',')) {
-                $jsonDelta = substr($jsonDelta, 1);
-            }
-            if (str_ends_with($jsonDelta, ']')) {
-                $jsonDelta = substr($jsonDelta, 0, -1);
+            try {
+                $data = $chunk->getArrayData();
+            } catch (JsonException) {
+                continue;
             }
 
-            // Split in case of multiple JSON objects
-            $deltas = explode(",\r\n", $jsonDelta);
+            if (!isset($data['candidates'][0]['content']['parts'][0])) {
+                continue;
+            }
 
-            foreach ($deltas as $delta) {
-                if ('' === $delta) {
-                    continue;
-                }
+            $part = $data['candidates'][0]['content']['parts'][0];
 
-                try {
-                    $data = json_decode($delta, true, 512, JSON_THROW_ON_ERROR);
-                } catch (\JsonException $e) {
-                    dump($delta);
-                    throw new RuntimeException('Failed to decode JSON response', 0, $e);
-                }
+            if (isset($part['functionCall'])) {
+                $toolCall = new ToolCall(
+                    id: uniqid('google-'),
+                    name: $part['functionCall']['name'],
+                    arguments: (array) $part['functionCall']['args']
+                );
 
-                if (!isset($data['candidates'][0]['content']['parts'][0]['text'])) {
-                    continue;
-                }
+                yield new ToolCallResponse($toolCall);
+                continue;
+            }
 
-                yield $data['candidates'][0]['content']['parts'][0]['text'];
+            if (isset($part['text'])) {
+                yield $part['text'];
             }
         }
     }
