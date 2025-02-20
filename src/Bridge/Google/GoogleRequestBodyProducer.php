@@ -10,6 +10,7 @@ use PhpLlm\LlmChain\Model\Message\Content\Image;
 use PhpLlm\LlmChain\Model\Message\Content\Text;
 use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
 use PhpLlm\LlmChain\Model\Message\MessageVisitor;
+use PhpLlm\LlmChain\Model\Message\Role;
 use PhpLlm\LlmChain\Model\Message\SystemMessage;
 use PhpLlm\LlmChain\Model\Message\ToolCallMessage;
 use PhpLlm\LlmChain\Model\Message\UserMessage;
@@ -91,7 +92,7 @@ final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVis
     {
         $parts = [];
         foreach ($message->content as $content) {
-            $parts[] = [...$content->accept($this)];
+            $parts[] = $content->accept($this);
         }
 
         return [
@@ -112,7 +113,7 @@ final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVis
                     fn (ToolCall $toolCall) => [
                         'functionCall' => [
                             'name' => $toolCall->name,
-                            'args' => $toolCall->arguments,
+                            'args' => (object) $toolCall->arguments,
                         ],
                     ],
                     $message->toolCalls
@@ -169,6 +170,7 @@ final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVis
     public function visitToolCallMessage(ToolCallMessage $message): array
     {
         return [
+            'role' => Role::User,
             'parts' => [
                 [
                     'functionResponse' => [
