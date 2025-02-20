@@ -80,17 +80,22 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
 
         $candidate = $data['candidates'][0];
 
-        // Handle function call response
         if (isset($candidate['content']['parts'][0]['functionCall'])) {
-            $functionCall = $candidate['content']['parts'][0]['functionCall'];
+            $toolCalls = [];
 
-            $toolCall = new ToolCall(
-                id: uniqid('google-'), // Google doesn't provide IDs
-                name: $functionCall['name'],
-                arguments: (array) $functionCall['args']
-            );
+            foreach ($candidate['content']['parts'] as $part) {
+                if (!isset($part['functionCall'])) {
+                    continue;
+                }
 
-            return new ToolCallResponse($toolCall);
+                $toolCalls[] = new ToolCall(
+                    id: uniqid('google-'),
+                    name: $part['functionCall']['name'],
+                    arguments: (array) $part['functionCall']['args']
+                );
+            }
+
+            return new ToolCallResponse(...$toolCalls);
         }
 
         // Regular text response
