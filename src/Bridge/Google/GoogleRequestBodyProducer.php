@@ -42,9 +42,7 @@ final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVis
 
         $systemMessage = $this->bag->getSystemMessage();
         if (null !== $systemMessage) {
-            $body['systemInstruction'] = [
-                'parts' => $systemMessage->accept($this),
-            ];
+            $body['systemInstruction'] = $systemMessage->accept($this);
         }
 
         if (!empty($this->options['tools'])) {

@@ -10,6 +10,7 @@ use PhpLlm\LlmChain\Chain\ToolBox\ToolAnalyzer;
 use PhpLlm\LlmChain\Chain\ToolBox\ToolBox;
 use PhpLlm\LlmChain\Model\Message\Message;
 use PhpLlm\LlmChain\Model\Message\MessageBag;
+use PhpLlm\LlmChain\Model\Message\SystemMessage;
 use Symfony\Component\Clock\Clock as SymfonyClock;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -43,7 +44,10 @@ $toolBox = new ToolBox(new ToolAnalyzer(), [$dummy, $clock]);
 $processor = new ChainProcessor($toolBox);
 $chain = new Chain($platform, $llm, [$processor], [$processor]);
 
-$messages = new MessageBag(Message::ofUser('What date and time is it? And what is the weather like in Los Angeles, and how about Amsterdam? Is this likely correct?'));
+$messages = new MessageBag(
+    new SystemMessage('You talk like a pirate'),
+    Message::ofUser('What date and time is it? And what is the weather like in Los Angeles, and how about Amsterdam? Is this likely correct?')
+);
 $response = $chain->call($messages);
 
 echo $response->getContent().PHP_EOL;
