@@ -3,11 +3,10 @@
 use PhpLlm\LlmChain\Bridge\Google\GoogleModel;
 use PhpLlm\LlmChain\Bridge\Google\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
-use PhpLlm\LlmChain\Chain\ToolBox\Attribute\AsTool;
-use PhpLlm\LlmChain\Chain\ToolBox\ChainProcessor;
-use PhpLlm\LlmChain\Chain\ToolBox\Tool\Clock;
-use PhpLlm\LlmChain\Chain\ToolBox\ToolAnalyzer;
-use PhpLlm\LlmChain\Chain\ToolBox\ToolBox;
+use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
+use PhpLlm\LlmChain\Chain\Toolbox\ChainProcessor;
+use PhpLlm\LlmChain\Chain\Toolbox\Tool\Clock;
+use PhpLlm\LlmChain\Chain\Toolbox\Toolbox;
 use PhpLlm\LlmChain\Model\Message\Message;
 use PhpLlm\LlmChain\Model\Message\MessageBag;
 use PhpLlm\LlmChain\Model\Message\SystemMessage;
@@ -40,7 +39,7 @@ $llm = new GoogleModel(GoogleModel::GEMINI_2_FLASH);
 $dummy = new Dummy();
 $clock = new Clock(new SymfonyClock());
 
-$toolBox = new ToolBox(new ToolAnalyzer(), [$dummy, $clock]);
+$toolBox = Toolbox::create($dummy, $clock);
 $processor = new ChainProcessor($toolBox);
 $chain = new Chain($platform, $llm, [$processor], [$processor]);
 
