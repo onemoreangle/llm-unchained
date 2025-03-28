@@ -3,6 +3,7 @@
 namespace PhpLlm\LlmChain\Bridge\Google;
 
 use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
+use PhpLlm\LlmChain\Exception\MissingModelSupport;
 use PhpLlm\LlmChain\Model\Message\AssistantMessage;
 use PhpLlm\LlmChain\Model\Message\Content\Audio;
 use PhpLlm\LlmChain\Model\Message\Content\ContentVisitor;
@@ -56,7 +57,51 @@ final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVis
             ];
         }
 
+        if ($generationConfig = $this->getGenerationConfig()) {
+            $body['generationConfig'] = $generationConfig;
+        }
+
         return $body;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function getGenerationConfig(): array
+    {
+        $generationConfig = [];
+
+        if (isset($this->options['temperature'])) {
+            $generationConfig['temperature'] = $this->options['temperature'];
+        }
+
+        if (isset($this->options['topP'])) {
+            $generationConfig['topP'] = $this->options['topP'];
+        }
+
+        if (isset($this->options['topK'])) {
+            $generationConfig['topK'] = $this->options['topK'];
+        }
+
+        if (isset($this->options['maxOutputTokens'])) {
+            $generationConfig['maxOutputTokens'] = $this->options['maxOutputTokens'];
+        }
+
+        if (isset($this->options['stopSequences'])) {
+            $generationConfig['stopSequences'] = $this->options['stopSequences'];
+        }
+
+        if (isset($this->options['response_format'])) {
+            $response_format = $this->options['response_format'];
+            if ('json_schema' !== $response_format['type']) {
+                throw MissingModelSupport::forStructuredOutput(GoogleModel::class);
+            }
+
+            $generationConfig['response_mime_type'] = 'application/json';
+            $generationConfig['response_schema'] = $response_format['json_schema']['schema'];
+        }
+
+        return $generationConfig;
     }
 
     /**

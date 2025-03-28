@@ -42,7 +42,7 @@ use Symfony\Component\TypeInfo\TypeResolver\TypeResolver;
  *     additionalProperties: false,
  * }
  */
-final readonly class Factory
+readonly class Factory
 {
     private TypeResolver $typeResolver;
 

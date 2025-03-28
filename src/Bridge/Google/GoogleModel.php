@@ -50,7 +50,7 @@ final readonly class GoogleModel implements LanguageModel
 
     public function supportsStructuredOutput(): bool
     {
-        return false;
+        return true;
     }
 
     public function supportsToolCalling(): bool
