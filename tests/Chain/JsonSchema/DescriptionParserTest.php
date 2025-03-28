@@ -85,42 +85,42 @@ final class DescriptionParserTest extends TestCase
     public static function provideMethodDescriptionCases(): \Generator
     {
         yield 'empty doc block' => [
-            'comment' => '',
-            'expected' => '',
+            '',
+            '',
         ];
 
         yield 'single line doc block with description' => [
-            'comment' => '/** @param string $myParam The description */',
-            'expected' => 'The description',
+            '/** @param string $myParam The description */',
+            'The description',
         ];
 
         yield 'multi line doc block with description and other tags' => [
-            'comment' => <<<'TEXT'
+            <<<'TEXT'
                     /**
                      * @param string $myParam The description
                      * @return void
                      */
                 TEXT,
-            'expected' => 'The description',
+            'The description',
         ];
 
         yield 'multi line doc block with multiple parameters' => [
-            'comment' => <<<'TEXT'
+            <<<'TEXT'
                     /**
                      * @param string $myParam The description
                      * @param string $anotherParam The wrong description
                      */
                 TEXT,
-            'expected' => 'The description',
+            'The description',
         ];
 
         yield 'multi line doc block with parameter that is not searched for' => [
-            'comment' => <<<'TEXT'
+            <<<'TEXT'
                     /**
                      * @param string $unknownParam The description
                      */
                 TEXT,
-            'expected' => '',
+            '',
         ];
     }
 }
