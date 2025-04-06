@@ -39,7 +39,7 @@ final class SimilaritySearch
             return 'No results found';
         }
 
-        $result = 'Found documents with following information:'.PHP_EOL;
+        $result = 'Found documents with following information:'."\n";
         foreach ($this->usedDocuments as $document) {
             $result .= json_encode($document->metadata);
         }

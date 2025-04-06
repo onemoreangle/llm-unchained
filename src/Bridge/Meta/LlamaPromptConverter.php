@@ -25,7 +25,7 @@ final class LlamaPromptConverter
 
         $messages = array_filter($messages, fn ($message) => '' !== $message);
 
-        return trim(implode(PHP_EOL.PHP_EOL, $messages)).PHP_EOL.PHP_EOL.'<|start_header_id|>assistant<|end_header_id|>';
+        return trim(implode("\n\n", $messages))."\n\n".'<|start_header_id|>assistant<|end_header_id|>';
     }
 
     public function convertMessage(UserMessage|SystemMessage|AssistantMessage $message): string
@@ -77,7 +77,7 @@ final class LlamaPromptConverter
             throw new RuntimeException('Unsupported message type.');
         }
 
-        $content = implode(PHP_EOL, $contentParts);
+        $content = implode("\n", $contentParts);
 
         return trim(<<<USER
             <|start_header_id|>{$message->getRole()->value}<|end_header_id|>

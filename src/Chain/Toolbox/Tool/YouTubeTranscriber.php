@@ -64,6 +64,6 @@ final readonly class YouTubeTranscriber
             return $node->text().' ';
         });
 
-        return implode(PHP_EOL, $transcript);
+        return implode("\n", $transcript);
     }
 }

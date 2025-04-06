@@ -42,7 +42,7 @@ final readonly class SystemPromptInputProcessor implements InputProcessor
         ) {
             $this->logger->debug('Append tool definitions to system prompt.');
 
-            $tools = implode(PHP_EOL.PHP_EOL, array_map(
+            $tools = implode("\n\n", array_map(
                 fn (Metadata $tool) => <<<TOOL
                     ## {$tool->name}
                     {$tool->description}

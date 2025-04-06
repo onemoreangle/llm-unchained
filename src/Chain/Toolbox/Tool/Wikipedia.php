@@ -35,12 +35,12 @@ final readonly class Wikipedia
             return 'No articles were found on Wikipedia.';
         }
 
-        $response = 'Articles with the following titles were found on Wikipedia:'.PHP_EOL;
+        $response = 'Articles with the following titles were found on Wikipedia:'."\n";
         foreach ($titles as $title) {
-            $response .= ' - '.$title.PHP_EOL;
+            $response .= ' - '.$title."\n";
         }
 
-        return $response.PHP_EOL.'Use the title of the article with tool "wikipedia_article" to load the content.';
+        return $response."\n".'Use the title of the article with tool "wikipedia_article" to load the content.';
     }
 
     /**
@@ -66,12 +66,12 @@ final readonly class Wikipedia
         $response = '';
         if (array_key_exists('redirects', $result['query'])) {
             foreach ($result['query']['redirects'] as $redirect) {
-                $response .= sprintf('The article "%s" redirects to article "%s".', $redirect['from'], $redirect['to']).PHP_EOL;
+                $response .= sprintf('The article "%s" redirects to article "%s".', $redirect['from'], $redirect['to'])."\n";
             }
-            $response .= PHP_EOL;
+            $response .= "\n";
         }
 
-        return $response.'This is the content of article "'.$article['title'].'":'.PHP_EOL.$article['extract'];
+        return $response.'This is the content of article "'.$article['title'].'":'."\n".$article['extract'];
     }
 
     /**
