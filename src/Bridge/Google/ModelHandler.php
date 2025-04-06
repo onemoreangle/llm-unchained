@@ -49,7 +49,7 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
     {
         Assert::isInstanceOf($input, MessageBagInterface::class);
 
-        $body = new GoogleRequestBodyProducer($input, $options);
+        $body = new GoogleRequestBodyProducer($input, $options, $model);
 
         return $this->httpClient->request('POST', sprintf('https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent', $model->getVersion()), [
             'headers' => [

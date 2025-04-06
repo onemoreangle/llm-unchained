@@ -15,15 +15,18 @@ use PhpLlm\LlmChain\Model\Message\Role;
 use PhpLlm\LlmChain\Model\Message\SystemMessage;
 use PhpLlm\LlmChain\Model\Message\ToolCallMessage;
 use PhpLlm\LlmChain\Model\Message\UserMessage;
+use PhpLlm\LlmChain\Model\Model;
 use PhpLlm\LlmChain\Model\Response\ToolCall;
 use PhpLlm\LlmChain\Platform\RequestBodyProducer;
+
+use function Symfony\Component\String\u;
 
 final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVisitor, ContentVisitor, \JsonSerializable
 {
     /**
      * @param array<string, mixed> $options
      */
-    public function __construct(protected MessageBagInterface $bag, protected array $options = [])
+    public function __construct(protected MessageBagInterface $bag, protected array $options = [], protected ?Model $model = null)
     {
     }
 
@@ -175,6 +178,10 @@ final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVis
      */
     public function visitSystemMessage(SystemMessage $message): array
     {
+        if (str_starts_with($this->model->getVersion(), 'gemma-')) {
+            throw new \InvalidArgumentException('Gemma models do not support system instructions');
+        }
+
         return [
             'role' => $message->getRole(),
             'parts' => [['text' => $message->content]],
@@ -190,21 +197,34 @@ final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVis
     }
 
     /**
-     * @return string[]
+     * @return array<string, mixed>
      */
     public function visitImage(Image $content): array
     {
-        // TODO: support image
-        return [];
+        if (str_starts_with($content->url, 'data:')) {
+            $type = u($content->url)->after('data:')->before(';')->toString();
+            $data = u($content->url)->after('base64,')->toString();
+        } else {
+            $type = pathinfo($content->url, PATHINFO_EXTENSION);
+            $type = 'jpg' !== $type ? "image/{$type}" : 'image/jpeg';
+            $data = base64_encode(file_get_contents($content->url));
+        }
+
+        return ['inline_data' => [
+            'mime_type' => $type,
+            'data' => $data,
+        ]];
     }
 
     /**
-     * @return string[]
+     * @return array<string, mixed>
      */
     public function visitAudio(Audio $content): array
     {
-        // TODO: support audio
-        return [];
+        return ['inline_data' => [
+            'mime_type' => "audio/{$content->format}",
+            'data' => $content->data,
+        ]];
     }
 
     /**
