@@ -8,7 +8,7 @@ use PhpLlm\LlmChain\Model\LanguageModel;
 
 final readonly class GoogleModel implements LanguageModel
 {
-    public const GEMINI_2_5_PREVIEW = 'gemini-2.5-pro-preview-03-25';
+    public const GEMINI_2_5_PRO_PREVIEW = 'gemini-2.5-pro-preview-03-25';
     public const GEMINI_2_FLASH = 'gemini-2.0-flash';
     public const GEMINI_2_PRO = 'gemini-2.0-pro-exp-02-05';
     public const GEMINI_2_FLASH_LITE = 'gemini-2.0-flash-lite-preview-02-05';
