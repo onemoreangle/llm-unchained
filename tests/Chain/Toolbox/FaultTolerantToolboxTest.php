@@ -60,7 +60,7 @@ final class FaultTolerantToolboxTest extends TestCase
 
     private function createFaultyToolbox(\Closure $exceptionFactory): ToolboxInterface
     {
-        return new class($exceptionFactory) implements ToolboxInterface {
+        return new class ($exceptionFactory) implements ToolboxInterface {
             public function __construct(private readonly \Closure $exceptionFactory)
             {
             }

@@ -76,7 +76,7 @@ final class SystemPromptInputProcessorTest extends TestCase
     {
         $processor = new SystemPromptInputProcessor(
             'This is a system prompt',
-            new class implements ToolboxInterface {
+            new class () implements ToolboxInterface {
                 public function getMap(): array
                 {
                     return [];
@@ -104,7 +104,7 @@ final class SystemPromptInputProcessorTest extends TestCase
     {
         $processor = new SystemPromptInputProcessor(
             'This is a system prompt',
-            new class implements ToolboxInterface {
+            new class () implements ToolboxInterface {
                 public function getMap(): array
                 {
                     return [
@@ -154,7 +154,7 @@ final class SystemPromptInputProcessorTest extends TestCase
     {
         $processor = new SystemPromptInputProcessor(
             new SystemPromptService(),
-            new class implements ToolboxInterface {
+            new class () implements ToolboxInterface {
                 public function getMap(): array
                 {
                     return [

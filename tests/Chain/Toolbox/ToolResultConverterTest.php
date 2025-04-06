@@ -37,7 +37,7 @@ final class ToolResultConverterTest extends TestCase
         yield 'datetime' => [new \DateTimeImmutable('2021-07-31 12:34:56'), '2021-07-31T12:34:56+00:00'];
 
         yield 'stringable' => [
-            new class implements \Stringable {
+            new class () implements \Stringable {
                 public function __toString(): string
                 {
                     return 'stringable';
@@ -47,7 +47,7 @@ final class ToolResultConverterTest extends TestCase
         ];
 
         yield 'json_serializable' => [
-            new class implements \JsonSerializable {
+            new class () implements \JsonSerializable {
                 public function jsonSerialize(): array
                 {
                     return ['key' => 'value'];

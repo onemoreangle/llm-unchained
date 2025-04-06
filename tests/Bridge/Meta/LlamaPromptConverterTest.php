@@ -38,32 +38,33 @@ final class LlamaPromptConverterTest extends TestCase
             $messageBag->add($message[1]);
         }
 
-        self::assertSame(<<<EXPECTED
-            <|begin_of_text|><|start_header_id|>system<|end_header_id|>
+        self::assertSame(
+            <<<EXPECTED
+                <|begin_of_text|><|start_header_id|>system<|end_header_id|>
 
-            You are a helpful chatbot.<|eot_id|>
+                You are a helpful chatbot.<|eot_id|>
 
-            <|start_header_id|>user<|end_header_id|>
+                <|start_header_id|>user<|end_header_id|>
 
-            Hello, how are you?<|eot_id|>
+                Hello, how are you?<|eot_id|>
 
-            <|start_header_id|>user<|end_header_id|>
+                <|start_header_id|>user<|end_header_id|>
 
-            Hello, how are you?
-            What is your name?<|eot_id|>
+                Hello, how are you?
+                What is your name?<|eot_id|>
 
-            <|start_header_id|>user<|end_header_id|>
+                <|start_header_id|>user<|end_header_id|>
 
-            Hello, how are you?
-            What is your name?
-            https://example.com/image.jpg<|eot_id|>
+                Hello, how are you?
+                What is your name?
+                https://example.com/image.jpg<|eot_id|>
 
-            <|start_header_id|>assistant<|end_header_id|>
+                <|start_header_id|>assistant<|end_header_id|>
 
-            I am an assistant.<|eot_id|>
+                I am an assistant.<|eot_id|>
 
-            <|start_header_id|>assistant<|end_header_id|>
-            EXPECTED,
+                <|start_header_id|>assistant<|end_header_id|>
+                EXPECTED,
             (new LlamaPromptConverter())->convertToPrompt($messageBag)
         );
     }

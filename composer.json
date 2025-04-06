@@ -1,16 +1,12 @@
 {
-    "name": "php-llm/llm-chain",
-    "description": "A slim PHP component with tooling around LLMs.",
+    "name": "onemoreangle/llm-unchained",
+    "description": "A PHP library for interacting with different LLM providers",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Christopher Hertel",
-            "email": "mail@christopher-hertel.de"
-        },
-        {
-            "name": "Oskar Stark",
-            "email": "oskarstark@googlemail.com"
+            "name": "Roy Garrido",
+            "email": "info@onemoreangle.com"
         }
     ],
     "require": {

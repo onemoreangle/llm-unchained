@@ -127,7 +127,7 @@ class ResponseConverterTest extends TestCase
             ->method('toArray')
             ->willReturnCallback(function ($throw = true) {
                 if ($throw) {
-                    throw new class extends \Exception implements ClientExceptionInterface {
+                    throw new class () extends \Exception implements ClientExceptionInterface {
                         public function getResponse(): ResponseInterface
                         {
                             throw new RuntimeException('Not implemented');
