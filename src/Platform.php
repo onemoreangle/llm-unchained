@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain;
 
+use Traversable;
 use PhpLlm\LlmChain\Exception\RuntimeException;
 use PhpLlm\LlmChain\Model\Model;
 use PhpLlm\LlmChain\Model\Response\AsyncResponse;
@@ -30,8 +31,8 @@ final readonly class Platform implements PlatformInterface
      */
     public function __construct(iterable $modelClients, iterable $responseConverter)
     {
-        $this->modelClients = $modelClients instanceof \Traversable ? iterator_to_array($modelClients) : $modelClients;
-        $this->responseConverter = $responseConverter instanceof \Traversable ? iterator_to_array($responseConverter) : $responseConverter;
+        $this->modelClients = $modelClients instanceof Traversable ? iterator_to_array($modelClients) : $modelClients;
+        $this->responseConverter = $responseConverter instanceof Traversable ? iterator_to_array($responseConverter) : $responseConverter;
     }
 
     public function request(Model $model, array|string|object $input, array $options = []): ResponseInterface

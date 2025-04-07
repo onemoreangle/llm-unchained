@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\Voyage;
 
+use SensitiveParameter;
 use PhpLlm\LlmChain\Document\Vector;
 use PhpLlm\LlmChain\Exception\RuntimeException;
 use PhpLlm\LlmChain\Model\Model;
@@ -18,7 +19,7 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
 {
     public function __construct(
         private HttpClientInterface $httpClient,
-        #[\SensitiveParameter] private string $apiKey,
+        #[SensitiveParameter] private string $apiKey,
     ) {
     }
 

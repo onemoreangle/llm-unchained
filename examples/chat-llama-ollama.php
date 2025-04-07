@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\Meta\Llama;
 use PhpLlm\LlmChain\Bridge\Ollama\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -18,7 +19,7 @@ if (empty($_ENV['OLLAMA_HOST_URL'])) {
 $platform = PlatformFactory::create($_ENV['OLLAMA_HOST_URL']);
 $llm = new Llama('llama3.2');
 
-$chain = new Chain($platform, $llm);
+$chain = new Chain(new PlatformModel($platform, $llm));
 $messages = new MessageBag(
     Message::forSystem('You are a helpful assistant.'),
     Message::ofUser('Tina has one brother and one sister. How many sisters do Tina\'s siblings have?'),

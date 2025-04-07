@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain;
 
+use Traversable;
 use PhpLlm\LlmChain\Chain\ChainAwareProcessor;
 use PhpLlm\LlmChain\Chain\Input;
 use PhpLlm\LlmChain\Chain\InputProcessor;
@@ -12,7 +13,6 @@ use PhpLlm\LlmChain\Chain\OutputProcessor;
 use PhpLlm\LlmChain\Exception\InvalidArgumentException;
 use PhpLlm\LlmChain\Exception\MissingModelSupport;
 use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\LanguageModel;
 use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
 use PhpLlm\LlmChain\Model\Response\AsyncResponse;
 use PhpLlm\LlmChain\Model\Response\ResponseInterface;
@@ -21,28 +21,27 @@ use Psr\Log\NullLogger;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\HttpExceptionInterface;
 
-final readonly class Chain implements ChainInterface
+readonly class Chain implements ChainInterface
 {
     /**
      * @var InputProcessor[]
      */
-    private array $inputProcessors;
+    protected array $inputProcessors;
 
     /**
      * @var OutputProcessor[]
      */
-    private array $outputProcessors;
+    protected array $outputProcessors;
 
     /**
      * @param InputProcessor[]  $inputProcessors
      * @param OutputProcessor[] $outputProcessors
      */
     public function __construct(
-        private PlatformInterface $platform,
-        private LanguageModel $llm,
+        protected PlatformModelInterface $platformModel,
         iterable $inputProcessors = [],
         iterable $outputProcessors = [],
-        private LoggerInterface $logger = new NullLogger(),
+        protected LoggerInterface $logger = new NullLogger(),
     ) {
         $this->inputProcessors = $this->initializeProcessors($inputProcessors, InputProcessor::class);
         $this->outputProcessors = $this->initializeProcessors($outputProcessors, OutputProcessor::class);
@@ -53,7 +52,7 @@ final readonly class Chain implements ChainInterface
      */
     public function call(MessageBagInterface $messages, array $options = []): ResponseInterface
     {
-        $input = new Input($this->llm, $messages, $options);
+        $input = new Input($this->platformModel->getModel(), $messages, $options);
         array_map(fn (InputProcessor $processor) => $processor->processInput($input), $this->inputProcessors);
 
         $llm = $input->llm;
@@ -69,7 +68,7 @@ final readonly class Chain implements ChainInterface
         }
 
         try {
-            $response = $this->platform->request($llm, $messages, $options);
+            $response = $this->platformModel->getPlatform()->request($llm, $messages, $options);
 
             if ($response instanceof AsyncResponse) {
                 $response = $response->unwrap();
@@ -109,6 +108,6 @@ final readonly class Chain implements ChainInterface
             }
         }
 
-        return $processors instanceof \Traversable ? iterator_to_array($processors) : $processors;
+        return $processors instanceof Traversable ? iterator_to_array($processors) : $processors;
     }
 }

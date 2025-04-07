@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox;
 
+use Traversable;
+use Throwable;
 use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolExecutionException;
 use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolNotFoundException;
 use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\ReflectionFactory;
@@ -31,7 +33,7 @@ final class Toolbox implements ToolboxInterface
         iterable $tools,
         private readonly LoggerInterface $logger = new NullLogger(),
     ) {
-        $this->tools = $tools instanceof \Traversable ? iterator_to_array($tools) : $tools;
+        $this->tools = $tools instanceof Traversable ? iterator_to_array($tools) : $tools;
     }
 
     public static function create(object ...$tools): self
@@ -63,7 +65,7 @@ final class Toolbox implements ToolboxInterface
         try {
             $this->logger->debug(sprintf('Executing tool "%s".', $toolCall->name), $toolCall->arguments);
             $result = $tool->{$metadata->reference->method}(...$toolCall->arguments);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->logger->warning(sprintf('Failed to execute tool "%s".', $toolCall->name), ['exception' => $e]);
             throw ToolExecutionException::executionFailed($toolCall, $e);
         }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\Google;
 
+use SensitiveParameter;
+use Generator;
 use PhpLlm\LlmChain\Exception\RuntimeException;
 use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
 use PhpLlm\LlmChain\Model\Model;
@@ -32,7 +34,7 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
 
     public function __construct(
         HttpClientInterface $httpClient,
-        #[\SensitiveParameter] private string $apiKey,
+        #[SensitiveParameter] private string $apiKey,
     ) {
         $this->httpClient = $httpClient instanceof EventSourceHttpClient ? $httpClient : new EventSourceHttpClient($httpClient);
     }
@@ -106,7 +108,7 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
         throw new RuntimeException('Response format not supported');
     }
 
-    private function convertStream(ResponseInterface $response): \Generator
+    private function convertStream(ResponseInterface $response): Generator
     {
         foreach ($this->httpClient->stream($response) as $chunk) {
             if (!$chunk instanceof ServerSentEvent || '[DONE]' === $chunk->getData()) {

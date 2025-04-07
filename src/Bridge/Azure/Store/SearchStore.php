@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\Azure\Store;
 
+use SensitiveParameter;
 use PhpLlm\LlmChain\Document\Metadata;
 use PhpLlm\LlmChain\Document\NullVector;
 use PhpLlm\LlmChain\Document\Vector;
@@ -20,7 +21,7 @@ final readonly class SearchStore implements VectorStoreInterface
     public function __construct(
         private HttpClientInterface $httpClient,
         private string $endpointUrl,
-        #[\SensitiveParameter] private string $apiKey,
+        #[SensitiveParameter] private string $apiKey,
         private string $indexName,
         private string $apiVersion,
         private string $vectorFieldName = 'vector',

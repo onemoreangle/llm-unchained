@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\Anthropic;
 
+use SensitiveParameter;
+use Generator;
 use PhpLlm\LlmChain\Exception\RuntimeException;
 use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
 use PhpLlm\LlmChain\Model\Model;
@@ -25,7 +27,7 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
 
     public function __construct(
         HttpClientInterface $httpClient,
-        #[\SensitiveParameter] private string $apiKey,
+        #[SensitiveParameter] private string $apiKey,
         private string $version = '2023-06-01',
     ) {
         $this->httpClient = $httpClient instanceof EventSourceHttpClient ? $httpClient : new EventSourceHttpClient($httpClient);
@@ -75,7 +77,7 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
         return new TextResponse($data['content'][0]['text']);
     }
 
-    private function convertStream(ResponseInterface $response): \Generator
+    private function convertStream(ResponseInterface $response): Generator
     {
         foreach ((new EventSourceHttpClient())->stream($response) as $chunk) {
             if (!$chunk instanceof ServerSentEvent || '[DONE]' === $chunk->getData()) {

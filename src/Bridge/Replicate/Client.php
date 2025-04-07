@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\Replicate;
 
+use SensitiveParameter;
 use Symfony\Component\Clock\ClockInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
@@ -13,7 +14,7 @@ final readonly class Client
     public function __construct(
         private HttpClientInterface $httpClient,
         private ClockInterface $clock,
-        #[\SensitiveParameter] private string $apiKey,
+        #[SensitiveParameter] private string $apiKey,
     ) {
     }
 

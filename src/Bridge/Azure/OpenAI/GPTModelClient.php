@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\Azure\OpenAI;
 
+use SensitiveParameter;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Model\Model;
 use PhpLlm\LlmChain\Platform\ModelClient;
@@ -21,7 +22,7 @@ final readonly class GPTModelClient implements ModelClient
         private string $baseUrl,
         private string $deployment,
         private string $apiVersion,
-        #[\SensitiveParameter] private string $apiKey,
+        #[SensitiveParameter] private string $apiKey,
     ) {
         $this->httpClient = $httpClient instanceof EventSourceHttpClient ? $httpClient : new EventSourceHttpClient($httpClient);
         Assert::notStartsWith($baseUrl, 'http://', 'The base URL must not contain the protocol.');

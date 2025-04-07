@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Chain\Toolbox;
 
+use Generator;
+use DateTimeImmutable;
+use Stringable;
+use JsonSerializable;
 use PhpLlm\LlmChain\Chain\Toolbox\ToolResultConverter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -22,7 +26,7 @@ final class ToolResultConverterTest extends TestCase
         self::assertSame($expected, $converter->convert($result));
     }
 
-    public static function provideResults(): \Generator
+    public static function provideResults(): Generator
     {
         yield 'null' => [null, null];
 
@@ -34,10 +38,10 @@ final class ToolResultConverterTest extends TestCase
 
         yield 'string' => ['plain string', 'plain string'];
 
-        yield 'datetime' => [new \DateTimeImmutable('2021-07-31 12:34:56'), '2021-07-31T12:34:56+00:00'];
+        yield 'datetime' => [new DateTimeImmutable('2021-07-31 12:34:56'), '2021-07-31T12:34:56+00:00'];
 
         yield 'stringable' => [
-            new class () implements \Stringable {
+            new class () implements Stringable {
                 public function __toString(): string
                 {
                     return 'stringable';
@@ -47,7 +51,7 @@ final class ToolResultConverterTest extends TestCase
         ];
 
         yield 'json_serializable' => [
-            new class () implements \JsonSerializable {
+            new class () implements JsonSerializable {
                 public function jsonSerialize(): array
                 {
                     return ['key' => 'value'];

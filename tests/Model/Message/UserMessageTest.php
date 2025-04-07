@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Model\Message;
 
+use Generator;
 use PhpLlm\LlmChain\Model\Message\Content\Audio;
 use PhpLlm\LlmChain\Model\Message\Content\Image;
 use PhpLlm\LlmChain\Model\Message\Content\Text;
@@ -80,7 +81,7 @@ final class UserMessageTest extends TestCase
         self::assertSame(\json_encode($message), \json_encode($expectedArray));
     }
 
-    public static function provideSerializationTests(): \Generator
+    public static function provideSerializationTests(): Generator
     {
         yield 'With only text' => [
             new UserMessage(new Text('foo')),

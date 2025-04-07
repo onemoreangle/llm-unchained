@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -29,7 +30,7 @@ $openMeteo = new OpenMeteo(HttpClient::create());
 $toolbox = Toolbox::create($openMeteo);
 $eventDispatcher = new EventDispatcher();
 $processor = new ChainProcessor($toolbox, eventDispatcher: $eventDispatcher);
-$chain = new Chain($platform, $llm, [$processor], [$processor]);
+$chain = new Chain(new PlatformModel($platform, $llm), [$processor], [$processor]);
 
 // Add tool call result listener to enforce chain exits direct with structured response for weather tools
 $eventDispatcher->addListener(ToolCallsExecuted::class, function (ToolCallsExecuted $event): void {

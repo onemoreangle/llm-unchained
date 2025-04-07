@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 
+use SensitiveParameter;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Model\Model;
 use PhpLlm\LlmChain\Platform\ModelClient as PlatformResponseFactory;
@@ -18,7 +19,7 @@ final readonly class ModelClient implements PlatformResponseFactory
 
     public function __construct(
         HttpClientInterface $httpClient,
-        #[\SensitiveParameter] private string $apiKey,
+        #[SensitiveParameter] private string $apiKey,
     ) {
         $this->httpClient = $httpClient instanceof EventSourceHttpClient ? $httpClient : new EventSourceHttpClient($httpClient);
         Assert::stringNotEmpty($apiKey, 'The API key must not be empty.');

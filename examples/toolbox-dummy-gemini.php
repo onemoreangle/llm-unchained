@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\Google\GoogleModel;
 use PhpLlm\LlmChain\Bridge\Google\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -41,7 +42,7 @@ $clock = new Clock(new SymfonyClock());
 
 $toolBox = Toolbox::create($dummy, $clock);
 $processor = new ChainProcessor($toolBox);
-$chain = new Chain($platform, $llm, [$processor], [$processor]);
+$chain = new Chain(new PlatformModel($platform, $llm), [$processor], [$processor]);
 
 $messages = new MessageBag(
     new SystemMessage('You talk like a pirate'),

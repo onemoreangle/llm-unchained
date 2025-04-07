@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\JsonSchema;
 
+use ReflectionProperty;
+use ReflectionParameter;
+
 final readonly class DescriptionParser
 {
-    public function getDescription(\ReflectionProperty|\ReflectionParameter $reflector): string
+    public function getDescription(ReflectionProperty|ReflectionParameter $reflector): string
     {
-        if ($reflector instanceof \ReflectionProperty) {
+        if ($reflector instanceof ReflectionProperty) {
             return $this->fromProperty($reflector);
         }
 
         return $this->fromParameter($reflector);
     }
 
-    private function fromProperty(\ReflectionProperty $property): string
+    private function fromProperty(ReflectionProperty $property): string
     {
         $comment = $property->getDocComment();
 
@@ -26,14 +29,14 @@ final readonly class DescriptionParser
         $class = $property->getDeclaringClass();
         if ($class->hasMethod('__construct')) {
             return $this->fromParameter(
-                new \ReflectionParameter([$class->getName(), '__construct'], $property->getName())
+                new ReflectionParameter([$class->getName(), '__construct'], $property->getName())
             );
         }
 
         return '';
     }
 
-    private function fromParameter(\ReflectionParameter $parameter): string
+    private function fromParameter(ReflectionParameter $parameter): string
     {
         $comment = $parameter->getDeclaringFunction()->getDocComment();
         if (!$comment) {

@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -25,7 +26,7 @@ $llm = new GPT(GPT::GPT_4O_MINI);
 $transcriber = new YouTubeTranscriber(HttpClient::create());
 $toolbox = Toolbox::create($transcriber);
 $processor = new ChainProcessor($toolbox);
-$chain = new Chain($platform, $llm, [$processor], [$processor]);
+$chain = new Chain(new PlatformModel($platform, $llm), [$processor], [$processor]);
 
 $messages = new MessageBag(Message::ofUser('Please summarize this video for me: https://www.youtube.com/watch?v=6uXW-ulpj0s'));
 $response = $chain->call($messages, [

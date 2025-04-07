@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\JsonSchema;
 
+use ReflectionMethod;
+use ReflectionClass;
+use InvalidArgumentException;
+use ReflectionProperty;
+use ReflectionParameter;
 use PhpLlm\LlmChain\Chain\JsonSchema\Attribute\With;
 use Symfony\Component\TypeInfo\Type;
 use Symfony\Component\TypeInfo\Type\BuiltinType;
@@ -58,7 +63,7 @@ readonly class Factory
      */
     public function buildParameters(string $className, string $methodName): ?array
     {
-        $reflection = new \ReflectionMethod($className, $methodName);
+        $reflection = new ReflectionMethod($className, $methodName);
 
         return $this->convertTypes($reflection->getParameters());
     }
@@ -68,13 +73,13 @@ readonly class Factory
      */
     public function buildProperties(string $className): ?array
     {
-        $reflection = new \ReflectionClass($className);
+        $reflection = new ReflectionClass($className);
 
         return $this->convertTypes($reflection->getProperties());
     }
 
     /**
-     * @param list<\ReflectionProperty|\ReflectionParameter> $elements
+     * @param list<ReflectionProperty|ReflectionParameter> $elements
      *
      * @return JsonSchema|null
      */
@@ -155,7 +160,7 @@ readonly class Factory
 
             case $type->isIdentifiedBy(TypeIdentifier::OBJECT):
                 if ($type instanceof BuiltinType) {
-                    throw new \InvalidArgumentException('Cannot build schema from plain object type.');
+                    throw new InvalidArgumentException('Cannot build schema from plain object type.');
                 }
                 assert($type instanceof ObjectType);
                 if (in_array($type->getClassName(), ['DateTime', 'DateTimeImmutable', 'DateTimeInterface'], true)) {

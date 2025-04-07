@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\JsonSchema\Attribute;
 
+use Attribute;
 use Webmozart\Assert\Assert;
 
-#[\Attribute(\Attribute::TARGET_PARAMETER)]
+#[Attribute(Attribute::TARGET_PARAMETER)]
 final readonly class With
 {
     /**

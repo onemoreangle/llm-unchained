@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use MongoDB\Client as MongoDBClient;
 use PhpLlm\LlmChain\Bridge\MongoDB\Store;
 use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
@@ -63,7 +64,7 @@ $llm = new GPT(GPT::GPT_4O_MINI);
 $similaritySearch = new SimilaritySearch($platform, $embeddings, $store);
 $toolbox = Toolbox::create($similaritySearch);
 $processor = new ChainProcessor($toolbox);
-$chain = new Chain($platform, $llm, [$processor], [$processor]);
+$chain = new Chain(new PlatformModel($platform, $llm), [$processor], [$processor]);
 
 $messages = new MessageBag(
     Message::forSystem('Please answer all user questions only using SimilaritySearch function.'),

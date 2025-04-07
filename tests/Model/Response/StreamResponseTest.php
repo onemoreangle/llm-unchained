@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Model\Response;
 
+use Generator;
 use PhpLlm\LlmChain\Model\Response\StreamResponse;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
@@ -23,7 +24,7 @@ final class StreamResponseTest extends TestCase
         })();
 
         $response = new StreamResponse($generator);
-        self::assertInstanceOf(\Generator::class, $response->getContent());
+        self::assertInstanceOf(Generator::class, $response->getContent());
 
         $content = iterator_to_array($response->getContent());
 

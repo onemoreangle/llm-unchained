@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox;
 
+use Generator;
+use Closure;
 use PhpLlm\LlmChain\Model\Message\Message;
 use PhpLlm\LlmChain\Model\Response\ResponseInterface;
 use PhpLlm\LlmChain\Model\Response\ToolCallResponse;
@@ -11,12 +13,12 @@ use PhpLlm\LlmChain\Model\Response\ToolCallResponse;
 final readonly class StreamResponse implements ResponseInterface
 {
     public function __construct(
-        private \Generator $generator,
-        private \Closure $handleToolCallsCallback,
+        private Generator $generator,
+        private Closure $handleToolCallsCallback,
     ) {
     }
 
-    public function getContent(): \Generator
+    public function getContent(): Generator
     {
         $streamedResponse = '';
         foreach ($this->generator as $value) {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 
+use Generator;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Exception\ContentFilterException;
 use PhpLlm\LlmChain\Exception\RuntimeException;
@@ -65,7 +66,7 @@ final class ResponseConverter implements PlatformResponseConverter
         return new TextResponse($choices[0]->getContent());
     }
 
-    private function convertStream(HttpResponse $response): \Generator
+    private function convertStream(HttpResponse $response): Generator
     {
         $toolCalls = [];
         foreach ((new EventSourceHttpClient())->stream($response) as $chunk) {

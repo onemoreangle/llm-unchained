@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
 
+use SensitiveParameter;
 use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
 use PhpLlm\LlmChain\Model\Model;
 use PhpLlm\LlmChain\Platform\ModelClient as PlatformResponseFactory;
@@ -15,7 +16,7 @@ final readonly class ModelClient implements PlatformResponseFactory
 {
     public function __construct(
         private HttpClientInterface $httpClient,
-        #[\SensitiveParameter]
+        #[SensitiveParameter]
         private string $apiKey,
     ) {
         Assert::stringNotEmpty($apiKey, 'The API key must not be empty.');

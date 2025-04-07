@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Chain\Toolbox;
 
+use Exception;
+use Closure;
 use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolExecutionException;
 use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolNotFoundException;
 use PhpLlm\LlmChain\Chain\Toolbox\ExecutionReference;
@@ -30,7 +32,7 @@ final class FaultTolerantToolboxTest extends TestCase
     public function faultyToolExecution(): void
     {
         $faultyToolbox = $this->createFaultyToolbox(
-            fn (ToolCall $toolCall) => ToolExecutionException::executionFailed($toolCall, new \Exception('error'))
+            fn (ToolCall $toolCall) => ToolExecutionException::executionFailed($toolCall, new Exception('error'))
         );
 
         $faultTolerantToolbox = new FaultTolerantToolbox($faultyToolbox);
@@ -58,10 +60,10 @@ final class FaultTolerantToolboxTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    private function createFaultyToolbox(\Closure $exceptionFactory): ToolboxInterface
+    private function createFaultyToolbox(Closure $exceptionFactory): ToolboxInterface
     {
         return new class ($exceptionFactory) implements ToolboxInterface {
-            public function __construct(private readonly \Closure $exceptionFactory)
+            public function __construct(private readonly Closure $exceptionFactory)
             {
             }
 

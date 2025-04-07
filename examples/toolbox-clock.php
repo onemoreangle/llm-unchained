@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -26,7 +27,7 @@ $metadataFactory = (new MemoryFactory())
     ->addTool(Clock::class, 'clock', 'Get the current date and time', 'now');
 $toolbox = new Toolbox($metadataFactory, [new Clock()]);
 $processor = new ChainProcessor($toolbox);
-$chain = new Chain($platform, $llm, [$processor], [$processor]);
+$chain = new Chain(new PlatformModel($platform, $llm), [$processor], [$processor]);
 
 $messages = new MessageBag(Message::ofUser('What date and time is it?'));
 $response = $chain->call($messages);

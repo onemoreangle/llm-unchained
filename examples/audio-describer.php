@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -19,7 +20,7 @@ if (empty($_ENV['OPENAI_API_KEY'])) {
 $platform = PlatformFactory::create($_ENV['OPENAI_API_KEY']);
 $llm = new GPT(GPT::GPT_4O_AUDIO);
 
-$chain = new Chain($platform, $llm);
+$chain = new Chain(new PlatformModel($platform, $llm));
 $messages = new MessageBag(
     Message::ofUser(
         'What is this recording about?',

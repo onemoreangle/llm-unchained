@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenRouter\GenericModel;
 use PhpLlm\LlmChain\Bridge\OpenRouter\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -18,7 +19,7 @@ if (empty($_ENV['OPENROUTER_KEY'])) {
 $platform = PlatformFactory::create($_ENV['OPENROUTER_KEY']);
 $llm = new GenericModel('google/gemini-2.0-flash-thinking-exp:free');
 
-$chain = new Chain($platform, $llm);
+$chain = new Chain(new PlatformModel($platform, $llm));
 $messages = new MessageBag(
     Message::forSystem('You are a helpful assistant.'),
     Message::ofUser('Tina has one brother and one sister. How many sisters do Tina\'s siblings have?'),

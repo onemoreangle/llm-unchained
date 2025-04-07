@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\Azure\OpenAI;
 
+use SensitiveParameter;
 use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT\ResponseConverter;
 use PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
@@ -17,7 +18,7 @@ final readonly class PlatformFactory
         string $baseUrl,
         string $deployment,
         string $apiVersion,
-        #[\SensitiveParameter]
+        #[SensitiveParameter]
         string $apiKey,
         ?HttpClientInterface $httpClient = null,
     ): Platform {

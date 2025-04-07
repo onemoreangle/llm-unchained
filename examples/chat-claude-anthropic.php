@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\Anthropic\Claude;
 use PhpLlm\LlmChain\Bridge\Anthropic\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -18,7 +19,7 @@ if (empty($_ENV['ANTHROPIC_API_KEY'])) {
 $platform = PlatformFactory::create($_ENV['ANTHROPIC_API_KEY']);
 $llm = new Claude();
 
-$chain = new Chain($platform, $llm);
+$chain = new Chain(new PlatformModel($platform, $llm));
 $messages = new MessageBag(
     Message::forSystem('You are a pirate and you write funny.'),
     Message::ofUser('What is the Symfony framework?'),

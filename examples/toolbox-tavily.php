@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -24,7 +25,7 @@ $llm = new GPT(GPT::GPT_4O_MINI);
 $tavily = new Tavily(HttpClient::create(), $_ENV['TAVILY_API_KEY']);
 $toolbox = Toolbox::create($tavily);
 $processor = new ChainProcessor($toolbox);
-$chain = new Chain($platform, $llm, [$processor], [$processor]);
+$chain = new Chain(new PlatformModel($platform, $llm), [$processor], [$processor]);
 
 $messages = new MessageBag(Message::ofUser('What was the latest game result of Dallas Cowboys?'));
 $response = $chain->call($messages);

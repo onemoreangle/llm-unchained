@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -20,7 +21,7 @@ $llm = new GPT(GPT::GPT_4O_MINI, [
     'temperature' => 0.5, // default options for the model
 ]);
 
-$chain = new Chain($platform, $llm);
+$chain = new Chain(new PlatformModel($platform, $llm));
 $messages = new MessageBag(
     Message::forSystem('You are a pirate and you write funny.'),
     Message::ofUser('What is the Symfony framework?'),

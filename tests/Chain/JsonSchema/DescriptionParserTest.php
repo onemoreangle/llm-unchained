@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Chain\JsonSchema;
 
+use ReflectionProperty;
+use ReflectionParameter;
+use ReflectionMethod;
+use Generator;
 use PhpLlm\LlmChain\Chain\JsonSchema\DescriptionParser;
 use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\User;
 use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\UserWithConstructor;
@@ -20,7 +24,7 @@ final class DescriptionParserTest extends TestCase
     #[Test]
     public function fromPropertyWithoutDocBlock(): void
     {
-        $property = new \ReflectionProperty(User::class, 'id');
+        $property = new ReflectionProperty(User::class, 'id');
 
         $actual = (new DescriptionParser())->getDescription($property);
 
@@ -30,7 +34,7 @@ final class DescriptionParserTest extends TestCase
     #[Test]
     public function fromPropertyWithDocBlock(): void
     {
-        $property = new \ReflectionProperty(User::class, 'name');
+        $property = new ReflectionProperty(User::class, 'name');
 
         $actual = (new DescriptionParser())->getDescription($property);
 
@@ -40,7 +44,7 @@ final class DescriptionParserTest extends TestCase
     #[Test]
     public function fromPropertyWithConstructorDocBlock(): void
     {
-        $property = new \ReflectionProperty(UserWithConstructor::class, 'name');
+        $property = new ReflectionProperty(UserWithConstructor::class, 'name');
 
         $actual = (new DescriptionParser())->getDescription($property);
 
@@ -50,7 +54,7 @@ final class DescriptionParserTest extends TestCase
     #[Test]
     public function fromParameterWithoutDocBlock(): void
     {
-        $parameter = new \ReflectionParameter([ToolWithoutDocs::class, 'bar'], 'text');
+        $parameter = new ReflectionParameter([ToolWithoutDocs::class, 'bar'], 'text');
 
         $actual = (new DescriptionParser())->getDescription($parameter);
 
@@ -60,7 +64,7 @@ final class DescriptionParserTest extends TestCase
     #[Test]
     public function fromParameterWithDocBlock(): void
     {
-        $parameter = new \ReflectionParameter([ToolRequiredParams::class, 'bar'], 'text');
+        $parameter = new ReflectionParameter([ToolRequiredParams::class, 'bar'], 'text');
 
         $actual = (new DescriptionParser())->getDescription($parameter);
 
@@ -71,9 +75,9 @@ final class DescriptionParserTest extends TestCase
     #[DataProvider('provideMethodDescriptionCases')]
     public function fromParameterWithDocs(string $comment, string $expected): void
     {
-        $method = self::createMock(\ReflectionMethod::class);
+        $method = self::createMock(ReflectionMethod::class);
         $method->method('getDocComment')->willReturn($comment);
-        $parameter = self::createMock(\ReflectionParameter::class);
+        $parameter = self::createMock(ReflectionParameter::class);
         $parameter->method('getDeclaringFunction')->willReturn($method);
         $parameter->method('getName')->willReturn('myParam');
 
@@ -82,7 +86,7 @@ final class DescriptionParserTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    public static function provideMethodDescriptionCases(): \Generator
+    public static function provideMethodDescriptionCases(): Generator
     {
         yield 'empty doc block' => [
             '',

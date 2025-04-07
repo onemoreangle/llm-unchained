@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory;
 
+use Traversable;
 use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
 use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory;
 
@@ -19,7 +20,7 @@ final readonly class ChainFactory implements MetadataFactory
      */
     public function __construct(iterable $factories)
     {
-        $this->factories = $factories instanceof \Traversable ? iterator_to_array($factories) : $factories;
+        $this->factories = $factories instanceof Traversable ? iterator_to_array($factories) : $factories;
     }
 
     public function getMetadata(string $reference): iterable

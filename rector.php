@@ -24,7 +24,7 @@ return RectorConfig::configure()
     ->withRules([
         PreferPHPUnitSelfCallRector::class,
     ])
-    ->withImportNames(importNames: true, importShortClasses: false)
+    ->withImportNames(importNames: true, importShortClasses: true)
     ->withSkip([
         AssertCountWithZeroToAssertEmptyRector::class,
         ClosureToArrowFunctionRector::class,

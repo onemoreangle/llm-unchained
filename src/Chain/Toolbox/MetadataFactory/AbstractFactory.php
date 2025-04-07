@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory;
 
+use ReflectionException;
 use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
 use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
 use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolConfigurationException;
@@ -27,7 +28,7 @@ abstract class AbstractFactory implements MetadataFactory
                 $attribute->description,
                 $this->factory->buildParameters($className, $attribute->method)
             );
-        } catch (\ReflectionException $e) {
+        } catch (ReflectionException $e) {
             throw ToolConfigurationException::invalidMethod($className, $attribute->method, $e);
         }
     }

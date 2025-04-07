@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\Google\GoogleModel;
 use PhpLlm\LlmChain\Bridge\Google\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -19,7 +20,7 @@ if (empty($_ENV['GOOGLE_API_KEY'])) {
 $platform = PlatformFactory::create($_ENV['GOOGLE_API_KEY']);
 $llm = new GoogleModel(GoogleModel::GEMINI_2_FLASH);
 
-$chain = new Chain($platform, $llm);
+$chain = new Chain(new PlatformModel($platform, $llm));
 $messages = new MessageBag(
     Message::ofUser(
         'What is this recording about?',

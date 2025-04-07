@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Chain\InputProcessor;
 
-final class SystemPromptService implements \Stringable
+use Stringable;
+
+final class SystemPromptService implements Stringable
 {
     public function __toString(): string
     {

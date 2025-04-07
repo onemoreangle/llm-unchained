@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -21,7 +22,7 @@ $llm = new GPT(GPT::GPT_4O_MINI);
 
 $processor = new SystemPromptInputProcessor('You are Yoda and write like he speaks. But short.');
 
-$chain = new Chain($platform, $llm, [$processor]);
+$chain = new Chain(new PlatformModel($platform, $llm), [$processor]);
 $messages = new MessageBag(Message::ofUser('What is the meaning of life?'));
 $response = $chain->call($messages);
 

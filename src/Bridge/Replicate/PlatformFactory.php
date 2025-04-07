@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\Replicate;
 
+use SensitiveParameter;
 use PhpLlm\LlmChain\Platform;
 use Symfony\Component\Clock\Clock;
 use Symfony\Component\HttpClient\HttpClient;
@@ -12,7 +13,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 final class PlatformFactory
 {
     public static function create(
-        #[\SensitiveParameter]
+        #[SensitiveParameter]
         string $apiKey,
         ?HttpClientInterface $httpClient = null,
     ): Platform {

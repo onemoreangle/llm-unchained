@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\Google\GeminiSchemaFactory;
 use PhpLlm\LlmChain\Bridge\Google\GoogleModel;
 use PhpLlm\LlmChain\Bridge\Google\PlatformFactory;
@@ -27,7 +28,7 @@ $llm = new GoogleModel(GoogleModel::GEMINI_2_FLASH);
 $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
 
 $processor = new ChainProcessor(new ResponseFormatFactory(new GeminiSchemaFactory()), $serializer);
-$chain = new Chain($platform, $llm, [$processor], [$processor]);
+$chain = new Chain(new PlatformModel($platform, $llm), [$processor], [$processor]);
 $messages = new MessageBag(
     Message::forSystem('You are a helpful math tutor. Guide the user through the solution step by step.'),
     Message::ofUser('how can I solve 8x + 7 = -23'),

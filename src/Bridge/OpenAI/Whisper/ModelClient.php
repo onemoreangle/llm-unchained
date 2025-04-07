@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
 
+use SensitiveParameter;
 use PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
 use PhpLlm\LlmChain\Model\Model;
 use PhpLlm\LlmChain\Platform\ModelClient as BaseModelClient;
@@ -15,7 +16,7 @@ final readonly class ModelClient implements BaseModelClient
 {
     public function __construct(
         private HttpClientInterface $httpClient,
-        #[\SensitiveParameter]
+        #[SensitiveParameter]
         private string $apiKey,
     ) {
         Assert::stringNotEmpty($apiKey, 'The API key must not be empty.');

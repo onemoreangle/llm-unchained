@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Bridge\OpenAI\DallE;
 
+use InvalidArgumentException;
 use PhpLlm\LlmChain\Bridge\OpenAI\DallE\UrlImage;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
@@ -25,7 +26,7 @@ final class UrlImageTest extends TestCase
     #[Test]
     public function itThrowsExceptionWhenUrlIsEmpty(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The image url must be given.');
 
         new UrlImage('');

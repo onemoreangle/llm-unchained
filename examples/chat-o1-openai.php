@@ -1,5 +1,6 @@
 <?php
 
+use PhpLlm\LlmChain\PlatformModel;
 use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
 use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
 use PhpLlm\LlmChain\Chain;
@@ -32,6 +33,6 @@ $prompt = <<<PROMPT
     at the beginning and end, not throughout the code.
     PROMPT;
 
-$response = (new Chain($platform, $llm))->call(new MessageBag(Message::ofUser($prompt)));
+$response = (new Chain(new PlatformModel($platform, $llm)))->call(new MessageBag(Message::ofUser($prompt)));
 
 echo $response->getContent().PHP_EOL;

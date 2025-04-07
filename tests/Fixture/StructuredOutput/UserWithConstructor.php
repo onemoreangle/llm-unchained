@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Fixture\StructuredOutput;
 
+use DateTimeInterface;
+
 final class UserWithConstructor
 {
     /**
@@ -12,7 +14,7 @@ final class UserWithConstructor
     public function __construct(
         public int $id,
         public string $name,
-        public \DateTimeInterface $createdAt,
+        public DateTimeInterface $createdAt,
         public bool $isActive,
         public ?int $age = null,
     ) {

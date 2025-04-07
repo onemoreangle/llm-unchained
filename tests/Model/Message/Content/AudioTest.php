@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Model\Message\Content;
 
+use InvalidArgumentException;
+use Generator;
 use PhpLlm\LlmChain\Model\Message\Content\Audio;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -37,7 +39,7 @@ final class AudioTest extends TestCase
     #[Test]
     public function fromDataUrlWithInvalidUrl(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid audio data URL format.');
 
         Audio::fromDataUrl('invalid-url');
@@ -55,7 +57,7 @@ final class AudioTest extends TestCase
     #[Test]
     public function fromFileWithInvalidPath(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The file "foo.mp3" does not exist or is not readable.');
 
         Audio::fromFile('foo.mp3');
@@ -71,7 +73,7 @@ final class AudioTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    public static function provideAudioData(): \Generator
+    public static function provideAudioData(): Generator
     {
         yield 'mp3 data' => [
             'SUQzBAAAAAAAfVREUkMAAAAMAAADMj',

@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox;
 
+use JsonSerializable;
 use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
 
 /**
  * @phpstan-import-type JsonSchema from Factory
  */
-final readonly class Metadata implements \JsonSerializable
+final readonly class Metadata implements JsonSerializable
 {
     /**
      * @param JsonSchema|null $parameters

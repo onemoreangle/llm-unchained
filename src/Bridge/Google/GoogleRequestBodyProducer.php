@@ -2,6 +2,8 @@
 
 namespace PhpLlm\LlmChain\Bridge\Google;
 
+use JsonSerializable;
+use InvalidArgumentException;
 use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
 use PhpLlm\LlmChain\Exception\MissingModelSupport;
 use PhpLlm\LlmChain\Model\Message\AssistantMessage;
@@ -21,7 +23,7 @@ use PhpLlm\LlmChain\Platform\RequestBodyProducer;
 
 use function Symfony\Component\String\u;
 
-final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVisitor, ContentVisitor, \JsonSerializable
+final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVisitor, ContentVisitor, JsonSerializable
 {
     /**
      * @param array<string, mixed> $options
@@ -179,7 +181,7 @@ final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVis
     public function visitSystemMessage(SystemMessage $message): array
     {
         if (str_starts_with($this->model->getVersion(), 'gemma-')) {
-            throw new \InvalidArgumentException('Gemma models do not support system instructions');
+            throw new InvalidArgumentException('Gemma models do not support system instructions');
         }
 
         return [

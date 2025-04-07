@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox\Attribute;
 
-#[\Attribute(\Attribute::TARGET_CLASS | \Attribute::IS_REPEATABLE)]
+use Attribute;
+
+#[Attribute(Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]
 final readonly class AsTool
 {
     public function __construct(

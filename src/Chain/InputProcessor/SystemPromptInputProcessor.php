@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\InputProcessor;
 
+use Stringable;
 use PhpLlm\LlmChain\Chain\Input;
 use PhpLlm\LlmChain\Chain\InputProcessor;
 use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
@@ -15,11 +16,11 @@ use Psr\Log\NullLogger;
 final readonly class SystemPromptInputProcessor implements InputProcessor
 {
     /**
-     * @param \Stringable|string    $systemPrompt the system prompt to prepend to the input messages
+     * @param Stringable|string $systemPrompt the system prompt to prepend to the input messages
      * @param ToolboxInterface|null $toolbox      the tool box to be used to append the tool definitions to the system prompt
      */
     public function __construct(
-        private \Stringable|string $systemPrompt,
+        private Stringable|string $systemPrompt,
         private ?ToolboxInterface $toolbox = null,
         private LoggerInterface $logger = new NullLogger(),
     ) {

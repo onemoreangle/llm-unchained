@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox\Exception;
 
+use RuntimeException;
 use PhpLlm\LlmChain\Chain\Toolbox\ExecutionReference;
 use PhpLlm\LlmChain\Model\Response\ToolCall;
 
-final class ToolNotFoundException extends \RuntimeException implements ExceptionInterface
+final class ToolNotFoundException extends RuntimeException implements ExceptionInterface
 {
     public ?ToolCall $toolCall = null;
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory;
 
+use ReflectionClass;
 use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
 use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
 use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
@@ -23,7 +24,7 @@ final class ReflectionFactory extends AbstractFactory
             throw ToolMetadataException::invalidReference($reference);
         }
 
-        $reflectionClass = new \ReflectionClass($reference);
+        $reflectionClass = new ReflectionClass($reference);
         $attributes = $reflectionClass->getAttributes(AsTool::class);
 
         if (0 === count($attributes)) {

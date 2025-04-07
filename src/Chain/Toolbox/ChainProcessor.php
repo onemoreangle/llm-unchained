@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Chain\Toolbox;
 
+use Closure;
 use PhpLlm\LlmChain\Chain\ChainAwareProcessor;
 use PhpLlm\LlmChain\Chain\ChainAwareTrait;
 use PhpLlm\LlmChain\Chain\Input;
@@ -78,7 +79,7 @@ final class ChainProcessor implements InputProcessor, OutputProcessor, ChainAwar
         return array_reduce($tools, fn (bool $carry, mixed $item) => $carry && is_string($item), true);
     }
 
-    private function handleToolCallsCallback(Output $output): \Closure
+    private function handleToolCallsCallback(Output $output): Closure
     {
         return function (ToolCallResponse $response, ?AssistantMessage $streamedAssistantResponse = null) use ($output): ResponseInterface {
             $messages = clone $output->messages;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpLlm\LlmChain\Tests\Model\Message;
 
+use Generator;
 use PhpLlm\LlmChain\Model\Message\AssistantMessage;
 use PhpLlm\LlmChain\Model\Message\Role;
 use PhpLlm\LlmChain\Model\Response\ToolCall;
@@ -52,7 +53,7 @@ final class AssistantMessageTest extends TestCase
         self::assertEqualsCanonicalizing($expectedResult, $message->jsonSerialize());
     }
 
-    public static function provideJsonSerializerTests(): \Generator
+    public static function provideJsonSerializerTests(): Generator
     {
         yield 'Message with content' => [
             new AssistantMessage('Foo Bar Baz'),
