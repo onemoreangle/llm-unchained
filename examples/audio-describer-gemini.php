@@ -30,3 +30,9 @@ $messages = new MessageBag(
 $response = $chain->call($messages);
 
 echo $response->getContent().PHP_EOL;
+$data = json_decode($response->getRawResponse()->getContent(false), true);
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo 'Failed to decode JSON response: '.json_last_error_msg().PHP_EOL;
+    exit(1);
+}
+echo "Total tokens used: {$data['usageMetadata']['promptTokenCount']} input / {$data['usageMetadata']['totalTokenCount']} total".PHP_EOL;
