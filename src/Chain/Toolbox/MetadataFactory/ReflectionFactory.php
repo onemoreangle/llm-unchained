@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory;
 
 use ReflectionClass;
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
 
 /**
  * Metadata factory that uses reflection in combination with `#[AsTool]` attribute to extract metadata from tools.

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Bridge\OpenAI\DallE;
+namespace OneMoreAngle\LlmUnchained\Tests\Bridge\OpenAI\DallE;
 
-use PhpLlm\LlmChain\Bridge\OpenAI\DallE\Base64Image;
-use PhpLlm\LlmChain\Bridge\OpenAI\DallE\ImageResponse;
-use PhpLlm\LlmChain\Bridge\OpenAI\DallE\UrlImage;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\Base64Image;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\ImageResponse;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\UrlImage;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Model\Message;
+namespace OneMoreAngle\LlmUnchained\Tests\Model\Message;
 
 use Generator;
-use PhpLlm\LlmChain\Model\Message\AssistantMessage;
-use PhpLlm\LlmChain\Model\Message\Role;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Message\AssistantMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\Role;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;

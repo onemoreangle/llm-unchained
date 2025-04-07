@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Fixture\Tool;
+namespace OneMoreAngle\LlmUnchained\Tests\Fixture\Tool;
 
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
 
 #[AsTool('tool_without_docs', 'A tool with required parameters', method: 'bar')]
 final class ToolWithoutDocs

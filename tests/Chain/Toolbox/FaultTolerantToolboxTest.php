@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\Toolbox;
 
 use Exception;
 use Closure;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolExecutionException;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolNotFoundException;
-use PhpLlm\LlmChain\Chain\Toolbox\ExecutionReference;
-use PhpLlm\LlmChain\Chain\Toolbox\FaultTolerantToolbox;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
-use PhpLlm\LlmChain\Chain\Toolbox\ToolboxInterface;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolNoParams;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolRequiredParams;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolExecutionException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolNotFoundException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ExecutionReference;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\FaultTolerantToolbox;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ToolboxInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolNoParams;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolRequiredParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\UsesClass;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain;
+namespace OneMoreAngle\LlmUnchained\Chain;
 
-use PhpLlm\LlmChain\Chain;
+use OneMoreAngle\LlmUnchained\Chain;
 
 trait ChainAwareTrait
 {

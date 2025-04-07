@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox;
 
 use Traversable;
 use Throwable;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolExecutionException;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolNotFoundException;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\ReflectionFactory;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolExecutionException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolNotFoundException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\ReflectionFactory;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox;
 
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolExecutionException;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolNotFoundException;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolExecutionException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolNotFoundException;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
 interface ToolboxInterface
 {

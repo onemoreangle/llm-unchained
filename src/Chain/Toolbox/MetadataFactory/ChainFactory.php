@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory;
 
 use Traversable;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory;
 
 final readonly class ChainFactory implements MetadataFactory
 {

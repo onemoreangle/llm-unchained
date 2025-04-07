@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI;
 
-use PhpLlm\LlmChain\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Model;
 
 final readonly class DallE implements Model
 {

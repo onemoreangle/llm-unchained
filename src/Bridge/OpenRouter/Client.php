@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenRouter;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenRouter;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
-use PhpLlm\LlmChain\Model\Response\TextResponse;
-use PhpLlm\LlmChain\Platform\ModelClient;
-use PhpLlm\LlmChain\Platform\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

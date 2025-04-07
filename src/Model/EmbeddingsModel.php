@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model;
+namespace OneMoreAngle\LlmUnchained\Model;
 
 interface EmbeddingsModel extends Model
 {

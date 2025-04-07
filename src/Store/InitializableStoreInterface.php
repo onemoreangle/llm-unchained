@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Store;
+namespace OneMoreAngle\LlmUnchained\Store;
 
 interface InitializableStoreInterface extends StoreInterface
 {

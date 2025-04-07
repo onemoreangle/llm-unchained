@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain;
+namespace OneMoreAngle\LlmUnchained;
 
 use Traversable;
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\AsyncResponse;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface;
-use PhpLlm\LlmChain\Platform\ModelClient;
-use PhpLlm\LlmChain\Platform\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\AsyncResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
 final readonly class Platform implements PlatformInterface

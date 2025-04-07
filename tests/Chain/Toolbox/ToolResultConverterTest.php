@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\Toolbox;
 
 use Generator;
 use DateTimeImmutable;
 use Stringable;
 use JsonSerializable;
-use PhpLlm\LlmChain\Chain\Toolbox\ToolResultConverter;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ToolResultConverter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox;
 
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
 
 interface MetadataFactory
 {

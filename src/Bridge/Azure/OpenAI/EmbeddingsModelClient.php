@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Azure\OpenAI;
+namespace OneMoreAngle\LlmUnchained\Bridge\Azure\OpenAI;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Platform\ModelClient;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

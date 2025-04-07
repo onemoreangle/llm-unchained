@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\Tool;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Tool;
 
-use PhpLlm\LlmChain\ChainInterface;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
-use PhpLlm\LlmChain\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\ChainInterface;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
 
 final readonly class Chain
 {

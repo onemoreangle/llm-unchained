@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Meta;
+namespace OneMoreAngle\LlmUnchained\Bridge\Meta;
 
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Message\AssistantMessage;
-use PhpLlm\LlmChain\Model\Message\Content\Image;
-use PhpLlm\LlmChain\Model\Message\Content\Text;
-use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
-use PhpLlm\LlmChain\Model\Message\SystemMessage;
-use PhpLlm\LlmChain\Model\Message\UserMessage;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Message\AssistantMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Image;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
+use OneMoreAngle\LlmUnchained\Model\Message\SystemMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\UserMessage;
 
 final class LlamaPromptConverter
 {

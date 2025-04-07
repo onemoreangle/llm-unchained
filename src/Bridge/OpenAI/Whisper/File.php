@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
 
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
 final readonly class File
 {

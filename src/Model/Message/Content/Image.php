@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model\Message\Content;
+namespace OneMoreAngle\LlmUnchained\Model\Message\Content;
 
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
 final readonly class Image implements Content
 {

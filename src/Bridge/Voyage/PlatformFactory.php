@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Voyage;
+namespace OneMoreAngle\LlmUnchained\Bridge\Voyage;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Platform;
+use OneMoreAngle\LlmUnchained\Platform;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 

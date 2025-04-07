@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Voyage;
+namespace OneMoreAngle\LlmUnchained\Bridge\Voyage;
 
-use PhpLlm\LlmChain\Model\EmbeddingsModel;
+use OneMoreAngle\LlmUnchained\Model\EmbeddingsModel;
 
 final readonly class Voyage implements EmbeddingsModel
 {

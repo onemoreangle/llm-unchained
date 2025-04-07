@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain;
+namespace OneMoreAngle\LlmUnchained\Chain;
 
-use PhpLlm\LlmChain\Model\LanguageModel;
-use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
 
 final class Input
 {

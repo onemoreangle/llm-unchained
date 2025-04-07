@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI\DallE;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 
 use Webmozart\Assert\Assert;
 

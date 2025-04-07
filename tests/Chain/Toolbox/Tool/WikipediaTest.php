@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\Toolbox\Tool;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\Toolbox\Tool;
 
-use PhpLlm\LlmChain\Chain\Toolbox\Tool\Wikipedia;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Tool\Wikipedia;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

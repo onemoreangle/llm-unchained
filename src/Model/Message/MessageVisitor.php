@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpLlm\LlmChain\Model\Message;
+namespace OneMoreAngle\LlmUnchained\Model\Message;
 
 interface MessageVisitor
 {

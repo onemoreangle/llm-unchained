@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Fixture\Tool;
+namespace OneMoreAngle\LlmUnchained\Tests\Fixture\Tool;
 
 use Exception;
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
 
 #[AsTool('tool_exception', description: 'This tool is broken', method: 'bar')]
 final class ToolException

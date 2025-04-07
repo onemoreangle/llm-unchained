@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\StructuredOutput;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\StructuredOutput;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\DescriptionParser;
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
-use PhpLlm\LlmChain\Chain\StructuredOutput\ResponseFormatFactory;
-use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\User;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\DescriptionParser;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Chain\StructuredOutput\ResponseFormatFactory;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\StructuredOutput\User;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\UsesClass;

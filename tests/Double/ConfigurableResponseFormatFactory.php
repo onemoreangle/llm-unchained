@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Double;
+namespace OneMoreAngle\LlmUnchained\Tests\Double;
 
-use PhpLlm\LlmChain\Chain\StructuredOutput\ResponseFormatFactoryInterface;
+use OneMoreAngle\LlmUnchained\Chain\StructuredOutput\ResponseFormatFactoryInterface;
 
 final readonly class ConfigurableResponseFormatFactory implements ResponseFormatFactoryInterface
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
-use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';

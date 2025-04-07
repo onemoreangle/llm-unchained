@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Model\Message;
+namespace OneMoreAngle\LlmUnchained\Tests\Model\Message;
 
-use PhpLlm\LlmChain\Model\Message\AssistantMessage;
-use PhpLlm\LlmChain\Model\Message\Content\Image;
-use PhpLlm\LlmChain\Model\Message\Content\Text;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
-use PhpLlm\LlmChain\Model\Message\SystemMessage;
-use PhpLlm\LlmChain\Model\Message\ToolCallMessage;
-use PhpLlm\LlmChain\Model\Message\UserMessage;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Message\AssistantMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Image;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Model\Message\SystemMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\ToolCallMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\UserMessage;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

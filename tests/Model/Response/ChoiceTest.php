@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Model\Response;
+namespace OneMoreAngle\LlmUnchained\Tests\Model\Response;
 
-use PhpLlm\LlmChain\Model\Response\Choice;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Response\Choice;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

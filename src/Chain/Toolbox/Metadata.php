@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox;
 
 use JsonSerializable;
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
 
 /**
  * @phpstan-import-type JsonSchema from Factory

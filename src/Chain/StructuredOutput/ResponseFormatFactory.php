@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\StructuredOutput;
+namespace OneMoreAngle\LlmUnchained\Chain\StructuredOutput;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
 
 use function Symfony\Component\String\u;
 

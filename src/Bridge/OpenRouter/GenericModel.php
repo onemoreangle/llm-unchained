@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenRouter;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenRouter;
 
-use PhpLlm\LlmChain\Bridge\Meta\Llama;
-use PhpLlm\LlmChain\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Bridge\Meta\Llama;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
 final readonly class GenericModel implements LanguageModel
 {

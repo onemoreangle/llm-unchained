@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI\DallE;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 
-use PhpLlm\LlmChain\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
 
 class ImageResponse implements ResponseInterface
 {

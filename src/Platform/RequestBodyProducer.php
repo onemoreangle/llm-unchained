@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpLlm\LlmChain\Platform;
+namespace OneMoreAngle\LlmUnchained\Platform;
 
 interface RequestBodyProducer
 {

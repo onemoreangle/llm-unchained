@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Model\Response;
+namespace OneMoreAngle\LlmUnchained\Tests\Model\Response;
 
 use Generator;
-use PhpLlm\LlmChain\Model\Response\StreamResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\StreamResponse;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

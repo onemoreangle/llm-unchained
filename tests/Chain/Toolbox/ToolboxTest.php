@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\Toolbox;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\DescriptionParser;
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolConfigurationException;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolExecutionException;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolNotFoundException;
-use PhpLlm\LlmChain\Chain\Toolbox\ExecutionReference;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\ChainFactory;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\MemoryFactory;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\ReflectionFactory;
-use PhpLlm\LlmChain\Chain\Toolbox\Toolbox;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolException;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolMisconfigured;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolNoAttribute1;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolNoParams;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolOptionalParam;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolRequiredParams;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\DescriptionParser;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolConfigurationException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolExecutionException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolNotFoundException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ExecutionReference;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\ChainFactory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\MemoryFactory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\ReflectionFactory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Toolbox;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolException;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolMisconfigured;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolNoAttribute1;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolNoParams;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolOptionalParam;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolRequiredParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
@@ -137,7 +137,7 @@ final class ToolboxTest extends TestCase
     public function executeWithMisconfiguredTool(): void
     {
         self::expectException(ToolConfigurationException::class);
-        self::expectExceptionMessage('Method "foo" not found in tool "PhpLlm\LlmChain\Tests\Fixture\Tool\ToolMisconfigured".');
+        self::expectExceptionMessage('Method "foo" not found in tool "OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolMisconfigured".');
 
         $toolbox = new Toolbox(new ReflectionFactory(), [new ToolMisconfigured()]);
 

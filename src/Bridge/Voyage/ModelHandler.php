@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Voyage;
+namespace OneMoreAngle\LlmUnchained\Bridge\Voyage;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
-use PhpLlm\LlmChain\Model\Response\VectorResponse;
-use PhpLlm\LlmChain\Platform\ModelClient;
-use PhpLlm\LlmChain\Platform\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 

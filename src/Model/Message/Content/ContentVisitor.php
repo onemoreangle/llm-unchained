@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpLlm\LlmChain\Model\Message\Content;
+namespace OneMoreAngle\LlmUnchained\Model\Message\Content;
 
 interface ContentVisitor
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory;
 
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
 
 final class MemoryFactory extends AbstractFactory
 {

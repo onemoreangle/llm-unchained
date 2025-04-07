@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Meta;
+namespace OneMoreAngle\LlmUnchained\Bridge\Meta;
 
-use PhpLlm\LlmChain\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
 final readonly class Llama implements LanguageModel
 {

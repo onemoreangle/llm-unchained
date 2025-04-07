@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Store;
+namespace OneMoreAngle\LlmUnchained\Store;
 
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Document\VectorDocument;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Document\VectorDocument;
 
 interface VectorStoreInterface extends StoreInterface
 {

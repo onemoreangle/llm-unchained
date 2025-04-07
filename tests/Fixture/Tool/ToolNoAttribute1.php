@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Fixture\Tool;
+namespace OneMoreAngle\LlmUnchained\Tests\Fixture\Tool;
 
 final class ToolNoAttribute1
 {

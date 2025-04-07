@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Replicate;
+namespace OneMoreAngle\LlmUnchained\Bridge\Replicate;
 
-use PhpLlm\LlmChain\Bridge\Meta\Llama;
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
-use PhpLlm\LlmChain\Model\Response\TextResponse;
-use PhpLlm\LlmChain\Platform\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Bridge\Meta\Llama;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
 final readonly class LlamaResponseConverter implements ResponseConverter

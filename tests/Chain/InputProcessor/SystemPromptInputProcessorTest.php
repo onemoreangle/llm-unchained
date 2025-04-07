@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\InputProcessor;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\InputProcessor;
 
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\InputProcessor\SystemPromptInputProcessor;
-use PhpLlm\LlmChain\Chain\Toolbox\ExecutionReference;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
-use PhpLlm\LlmChain\Chain\Toolbox\ToolboxInterface;
-use PhpLlm\LlmChain\Model\Message\Content\Text;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
-use PhpLlm\LlmChain\Model\Message\SystemMessage;
-use PhpLlm\LlmChain\Model\Message\UserMessage;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolNoParams;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolRequiredParams;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\InputProcessor\SystemPromptInputProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ExecutionReference;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ToolboxInterface;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Model\Message\SystemMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\UserMessage;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolNoParams;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolRequiredParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

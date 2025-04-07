@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Document;
+namespace OneMoreAngle\LlmUnchained\Document;
 
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
 final class Vector implements VectorInterface
 {

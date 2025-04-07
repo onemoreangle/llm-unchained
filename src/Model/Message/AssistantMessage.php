@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model\Message;
+namespace OneMoreAngle\LlmUnchained\Model\Message;
 
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
 final readonly class AssistantMessage implements MessageInterface
 {

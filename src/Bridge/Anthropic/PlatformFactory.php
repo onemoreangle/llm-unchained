@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Anthropic;
+namespace OneMoreAngle\LlmUnchained\Bridge\Anthropic;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Platform;
+use OneMoreAngle\LlmUnchained\Platform;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 

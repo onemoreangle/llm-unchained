@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Platform;
+namespace OneMoreAngle\LlmUnchained\Platform;
 
-use PhpLlm\LlmChain\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Model;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
 interface ModelClient

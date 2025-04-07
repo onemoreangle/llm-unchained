@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Fixture;
+namespace OneMoreAngle\LlmUnchained\Tests\Fixture;
 
 final class SomeStructure
 {

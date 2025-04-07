@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI\GPT;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT;
 
 use Generator;
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
-use PhpLlm\LlmChain\Exception\ContentFilterException;
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\Choice;
-use PhpLlm\LlmChain\Model\Response\ChoiceResponse;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
-use PhpLlm\LlmChain\Model\Response\StreamResponse;
-use PhpLlm\LlmChain\Model\Response\TextResponse;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
-use PhpLlm\LlmChain\Model\Response\ToolCallResponse;
-use PhpLlm\LlmChain\Platform\ResponseConverter as PlatformResponseConverter;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT;
+use OneMoreAngle\LlmUnchained\Exception\ContentFilterException;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\Choice;
+use OneMoreAngle\LlmUnchained\Model\Response\ChoiceResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\StreamResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCallResponse;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as PlatformResponseConverter;
 use Symfony\Component\HttpClient\Chunk\ServerSentEvent;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Component\HttpClient\Exception\JsonException;

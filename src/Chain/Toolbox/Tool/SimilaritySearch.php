@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\Tool;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Tool;
 
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Document\VectorDocument;
-use PhpLlm\LlmChain\Model\EmbeddingsModel;
-use PhpLlm\LlmChain\PlatformInterface;
-use PhpLlm\LlmChain\Store\VectorStoreInterface;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Document\VectorDocument;
+use OneMoreAngle\LlmUnchained\Model\EmbeddingsModel;
+use OneMoreAngle\LlmUnchained\PlatformInterface;
+use OneMoreAngle\LlmUnchained\Store\VectorStoreInterface;
 
 #[AsTool('similarity_search', description: 'Searches for documents similar to a query or sentence.')]
 final class SimilaritySearch

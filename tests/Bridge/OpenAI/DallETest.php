@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Bridge\OpenAI;
+namespace OneMoreAngle\LlmUnchained\Tests\Bridge\OpenAI;
 
-use PhpLlm\LlmChain\Bridge\OpenAI\DallE;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\Exception;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception;
 
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
 final class ToolMetadataException extends InvalidArgumentException implements ExceptionInterface
 {

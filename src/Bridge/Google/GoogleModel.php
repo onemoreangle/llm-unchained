@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Google;
+namespace OneMoreAngle\LlmUnchained\Bridge\Google;
 
-use PhpLlm\LlmChain\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
 final readonly class GoogleModel implements LanguageModel
 {

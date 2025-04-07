@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Azure\OpenAI;
+namespace OneMoreAngle\LlmUnchained\Bridge\Azure\OpenAI;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT\ResponseConverter;
-use PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
-use PhpLlm\LlmChain\Platform;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
+use OneMoreAngle\LlmUnchained\Platform;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 

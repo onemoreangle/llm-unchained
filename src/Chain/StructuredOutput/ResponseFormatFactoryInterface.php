@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\StructuredOutput;
+namespace OneMoreAngle\LlmUnchained\Chain\StructuredOutput;
 
 interface ResponseFormatFactoryInterface
 {

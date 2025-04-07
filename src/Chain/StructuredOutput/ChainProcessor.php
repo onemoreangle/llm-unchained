@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\StructuredOutput;
+namespace OneMoreAngle\LlmUnchained\Chain\StructuredOutput;
 
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\InputProcessor;
-use PhpLlm\LlmChain\Chain\Output;
-use PhpLlm\LlmChain\Chain\OutputProcessor;
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
-use PhpLlm\LlmChain\Exception\MissingModelSupport;
-use PhpLlm\LlmChain\Model\Response\StructuredResponse;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\InputProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Output;
+use OneMoreAngle\LlmUnchained\Chain\OutputProcessor;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
+use OneMoreAngle\LlmUnchained\Model\Response\StructuredResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 
 final class ChainProcessor implements InputProcessor, OutputProcessor

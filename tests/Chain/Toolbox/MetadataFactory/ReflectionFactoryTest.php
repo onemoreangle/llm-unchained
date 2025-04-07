@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\Toolbox\MetadataFactory;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\Toolbox\MetadataFactory;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\DescriptionParser;
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolConfigurationException;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
-use PhpLlm\LlmChain\Chain\Toolbox\ExecutionReference;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\ReflectionFactory;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolMultiple;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolRequiredParams;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolWrong;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\DescriptionParser;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolConfigurationException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ExecutionReference;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\ReflectionFactory;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolMultiple;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolRequiredParams;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolWrong;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\UsesClass;

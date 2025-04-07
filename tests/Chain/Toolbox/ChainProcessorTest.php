@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\Toolbox;
 
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\Toolbox\ChainProcessor;
-use PhpLlm\LlmChain\Chain\Toolbox\ExecutionReference;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
-use PhpLlm\LlmChain\Chain\Toolbox\ToolboxInterface;
-use PhpLlm\LlmChain\Exception\MissingModelSupport;
-use PhpLlm\LlmChain\Model\LanguageModel;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ChainProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ExecutionReference;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ToolboxInterface;
+use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\UsesClass;

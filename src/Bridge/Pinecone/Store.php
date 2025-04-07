@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Pinecone;
+namespace OneMoreAngle\LlmUnchained\Bridge\Pinecone;
 
-use PhpLlm\LlmChain\Document\Metadata;
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Document\VectorDocument;
-use PhpLlm\LlmChain\Store\VectorStoreInterface;
+use OneMoreAngle\LlmUnchained\Document\Metadata;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Document\VectorDocument;
+use OneMoreAngle\LlmUnchained\Store\VectorStoreInterface;
 use Probots\Pinecone\Client;
 use Probots\Pinecone\Resources\Data\VectorResource;
 use Symfony\Component\Uid\Uuid;

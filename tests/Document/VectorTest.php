@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Document;
+namespace OneMoreAngle\LlmUnchained\Tests\Document;
 
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Document\VectorInterface;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Document\VectorInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

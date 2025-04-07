@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\InputProcessor;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\InputProcessor;
 
-use PhpLlm\LlmChain\Bridge\Anthropic\Claude;
-use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\InputProcessor\LlmOverrideInputProcessor;
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Bridge\Anthropic\Claude;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\InputProcessor\LlmOverrideInputProcessor;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;
@@ -55,7 +55,7 @@ final class LlmOverrideInputProcessorTest extends TestCase
     public function processInputWithInvalidLlmOption(): void
     {
         self::expectException(InvalidArgumentException::class);
-        self::expectExceptionMessage('Option "llm" must be an instance of PhpLlm\LlmChain\Model\LanguageModel.');
+        self::expectExceptionMessage('Option "llm" must be an instance of OneMoreAngle\LlmUnchained\Model\LanguageModel.');
 
         $gpt = new GPT();
         $model = new Embeddings();

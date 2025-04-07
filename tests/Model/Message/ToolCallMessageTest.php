@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Model\Message;
+namespace OneMoreAngle\LlmUnchained\Tests\Model\Message;
 
-use PhpLlm\LlmChain\Model\Message\Role;
-use PhpLlm\LlmChain\Model\Message\ToolCallMessage;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Message\Role;
+use OneMoreAngle\LlmUnchained\Model\Message\ToolCallMessage;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

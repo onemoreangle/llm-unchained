@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain;
+namespace OneMoreAngle\LlmUnchained;
 
 use Traversable;
-use PhpLlm\LlmChain\Chain\ChainAwareProcessor;
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\InputProcessor;
-use PhpLlm\LlmChain\Chain\Output;
-use PhpLlm\LlmChain\Chain\OutputProcessor;
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
-use PhpLlm\LlmChain\Exception\MissingModelSupport;
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
-use PhpLlm\LlmChain\Model\Response\AsyncResponse;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Chain\ChainAwareProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\InputProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Output;
+use OneMoreAngle\LlmUnchained\Chain\OutputProcessor;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\AsyncResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;

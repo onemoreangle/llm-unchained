@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\Toolbox\MetadataFactory;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\Toolbox\MetadataFactory;
 
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolConfigurationException;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\ChainFactory;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\MemoryFactory;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\ReflectionFactory;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolMisconfigured;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolMultiple;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolNoAttribute1;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolOptionalParam;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolRequiredParams;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolConfigurationException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\ChainFactory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\MemoryFactory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\ReflectionFactory;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolMisconfigured;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolMultiple;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolNoAttribute1;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolOptionalParam;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolRequiredParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\Test;

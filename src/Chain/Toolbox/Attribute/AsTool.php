@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\Attribute;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute;
 
 use Attribute;
 

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI\DallE;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 
 use SensitiveParameter;
 use RuntimeException;
-use PhpLlm\LlmChain\Bridge\OpenAI\DallE;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
-use PhpLlm\LlmChain\Platform\ModelClient as PlatformResponseFactory;
-use PhpLlm\LlmChain\Platform\ResponseConverter as PlatformResponseConverter;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient as PlatformResponseFactory;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as PlatformResponseConverter;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 use Webmozart\Assert\Assert;

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\Toolbox\MetadataFactory;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\Toolbox\MetadataFactory;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\DescriptionParser;
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
-use PhpLlm\LlmChain\Chain\Toolbox\Exception\ToolMetadataException;
-use PhpLlm\LlmChain\Chain\Toolbox\ExecutionReference;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
-use PhpLlm\LlmChain\Chain\Toolbox\MetadataFactory\MemoryFactory;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolNoAttribute1;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolNoAttribute2;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\DescriptionParser;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ExecutionReference;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory\MemoryFactory;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolNoAttribute1;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolNoAttribute2;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\UsesClass;

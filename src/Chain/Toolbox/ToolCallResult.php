@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox;
 
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
 final readonly class ToolCallResult
 {

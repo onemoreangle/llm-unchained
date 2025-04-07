@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\JsonSchema;
+namespace OneMoreAngle\LlmUnchained\Chain\JsonSchema;
 
 use ReflectionMethod;
 use ReflectionClass;
 use InvalidArgumentException;
 use ReflectionProperty;
 use ReflectionParameter;
-use PhpLlm\LlmChain\Chain\JsonSchema\Attribute\With;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Attribute\With;
 use Symfony\Component\TypeInfo\Type;
 use Symfony\Component\TypeInfo\Type\BuiltinType;
 use Symfony\Component\TypeInfo\Type\CollectionType;

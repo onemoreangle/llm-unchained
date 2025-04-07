@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Model\Message;
+namespace OneMoreAngle\LlmUnchained\Tests\Model\Message;
 
 use Generator;
-use PhpLlm\LlmChain\Model\Message\Content\Audio;
-use PhpLlm\LlmChain\Model\Message\Content\Image;
-use PhpLlm\LlmChain\Model\Message\Content\Text;
-use PhpLlm\LlmChain\Model\Message\Role;
-use PhpLlm\LlmChain\Model\Message\UserMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Audio;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Image;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
+use OneMoreAngle\LlmUnchained\Model\Message\Role;
+use OneMoreAngle\LlmUnchained\Model\Message\UserMessage;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;

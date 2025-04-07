@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Anthropic;
+namespace OneMoreAngle\LlmUnchained\Bridge\Anthropic;
 
 use SensitiveParameter;
 use Generator;
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
-use PhpLlm\LlmChain\Model\Response\StreamResponse;
-use PhpLlm\LlmChain\Model\Response\TextResponse;
-use PhpLlm\LlmChain\Platform\ModelClient;
-use PhpLlm\LlmChain\Platform\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\StreamResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Component\HttpClient\Chunk\ServerSentEvent;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Component\HttpClient\Exception\JsonException;

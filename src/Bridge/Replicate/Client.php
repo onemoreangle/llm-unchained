@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Replicate;
+namespace OneMoreAngle\LlmUnchained\Bridge\Replicate;
 
 use SensitiveParameter;
 use Symfony\Component\Clock\ClockInterface;

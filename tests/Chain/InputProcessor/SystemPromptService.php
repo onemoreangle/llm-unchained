@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\InputProcessor;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\InputProcessor;
 
 use Stringable;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model\Response;
+namespace OneMoreAngle\LlmUnchained\Model\Response;
 
-use PhpLlm\LlmChain\Platform\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
 final class AsyncResponse implements ResponseInterface

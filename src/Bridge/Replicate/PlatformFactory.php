@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Replicate;
+namespace OneMoreAngle\LlmUnchained\Bridge\Replicate;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Platform;
+use OneMoreAngle\LlmUnchained\Platform;
 use Symfony\Component\Clock\Clock;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;

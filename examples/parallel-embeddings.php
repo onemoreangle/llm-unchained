@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
-use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
-use PhpLlm\LlmChain\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';

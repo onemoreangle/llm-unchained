@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\Exception;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception;
 
 use RuntimeException;
 use Throwable;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
 final class ToolExecutionException extends RuntimeException implements ExceptionInterface
 {

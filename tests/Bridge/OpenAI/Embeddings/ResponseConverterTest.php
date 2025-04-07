@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Bridge\OpenAI\Embeddings;
+namespace OneMoreAngle\LlmUnchained\Tests\Bridge\OpenAI\Embeddings;
 
-use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings\ResponseConverter;
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

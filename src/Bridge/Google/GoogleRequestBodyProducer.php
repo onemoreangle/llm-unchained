@@ -1,25 +1,25 @@
 <?php
 
-namespace PhpLlm\LlmChain\Bridge\Google;
+namespace OneMoreAngle\LlmUnchained\Bridge\Google;
 
 use JsonSerializable;
 use InvalidArgumentException;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
-use PhpLlm\LlmChain\Exception\MissingModelSupport;
-use PhpLlm\LlmChain\Model\Message\AssistantMessage;
-use PhpLlm\LlmChain\Model\Message\Content\Audio;
-use PhpLlm\LlmChain\Model\Message\Content\ContentVisitor;
-use PhpLlm\LlmChain\Model\Message\Content\Image;
-use PhpLlm\LlmChain\Model\Message\Content\Text;
-use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
-use PhpLlm\LlmChain\Model\Message\MessageVisitor;
-use PhpLlm\LlmChain\Model\Message\Role;
-use PhpLlm\LlmChain\Model\Message\SystemMessage;
-use PhpLlm\LlmChain\Model\Message\ToolCallMessage;
-use PhpLlm\LlmChain\Model\Message\UserMessage;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
-use PhpLlm\LlmChain\Platform\RequestBodyProducer;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
+use OneMoreAngle\LlmUnchained\Model\Message\AssistantMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Audio;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\ContentVisitor;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Image;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageVisitor;
+use OneMoreAngle\LlmUnchained\Model\Message\Role;
+use OneMoreAngle\LlmUnchained\Model\Message\SystemMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\ToolCallMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\UserMessage;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Platform\RequestBodyProducer;
 
 use function Symfony\Component\String\u;
 

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
 
-use PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
-use PhpLlm\LlmChain\Model\Response\TextResponse;
-use PhpLlm\LlmChain\Platform\ResponseConverter as BaseResponseConverter;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as BaseResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
 final class ResponseConverter implements BaseResponseConverter

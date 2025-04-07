@@ -1,11 +1,11 @@
 <?php
 
-use PhpLlm\LlmChain\PlatformModel;
-use PhpLlm\LlmChain\Bridge\Meta\Llama;
-use PhpLlm\LlmChain\Bridge\Replicate\PlatformFactory;
-use PhpLlm\LlmChain\Chain;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\PlatformModel;
+use OneMoreAngle\LlmUnchained\Bridge\Meta\Llama;
+use OneMoreAngle\LlmUnchained\Bridge\Replicate\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Chain;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';

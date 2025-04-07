@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Anthropic;
+namespace OneMoreAngle\LlmUnchained\Bridge\Anthropic;
 
-use PhpLlm\LlmChain\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
 final readonly class Claude implements LanguageModel
 {

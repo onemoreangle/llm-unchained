@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model\Response;
+namespace OneMoreAngle\LlmUnchained\Model\Response;
 
 use JsonSerializable;
 

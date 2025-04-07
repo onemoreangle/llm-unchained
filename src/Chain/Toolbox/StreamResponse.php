@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox;
 
 use Generator;
 use Closure;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface;
-use PhpLlm\LlmChain\Model\Response\ToolCallResponse;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCallResponse;
 
 final readonly class StreamResponse implements ResponseInterface
 {

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\StructuredOutput;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\StructuredOutput;
 
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\Output;
-use PhpLlm\LlmChain\Chain\StructuredOutput\ChainProcessor;
-use PhpLlm\LlmChain\Exception\MissingModelSupport;
-use PhpLlm\LlmChain\Model\LanguageModel;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
-use PhpLlm\LlmChain\Model\Response\Choice;
-use PhpLlm\LlmChain\Model\Response\StructuredResponse;
-use PhpLlm\LlmChain\Model\Response\TextResponse;
-use PhpLlm\LlmChain\Tests\Double\ConfigurableResponseFormatFactory;
-use PhpLlm\LlmChain\Tests\Fixture\SomeStructure;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\Output;
+use OneMoreAngle\LlmUnchained\Chain\StructuredOutput\ChainProcessor;
+use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Model\Response\Choice;
+use OneMoreAngle\LlmUnchained\Model\Response\StructuredResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Tests\Double\ConfigurableResponseFormatFactory;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\SomeStructure;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\UsesClass;

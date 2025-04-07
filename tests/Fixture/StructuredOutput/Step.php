@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Fixture\StructuredOutput;
+namespace OneMoreAngle\LlmUnchained\Tests\Fixture\StructuredOutput;
 
 final class Step
 {

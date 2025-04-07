@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Document;
+namespace OneMoreAngle\LlmUnchained\Document;
 
 interface VectorInterface
 {

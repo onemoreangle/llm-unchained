@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Bridge\OpenAI\GPT;
+namespace OneMoreAngle\LlmUnchained\Tests\Bridge\OpenAI\GPT;
 
 use Exception;
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT\ResponseConverter;
-use PhpLlm\LlmChain\Exception\ContentFilterException;
-use PhpLlm\LlmChain\Exception\RuntimeException;
-use PhpLlm\LlmChain\Model\Response\Choice;
-use PhpLlm\LlmChain\Model\Response\ChoiceResponse;
-use PhpLlm\LlmChain\Model\Response\TextResponse;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
-use PhpLlm\LlmChain\Model\Response\ToolCallResponse;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Exception\ContentFilterException;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Model\Response\Choice;
+use OneMoreAngle\LlmUnchained\Model\Response\ChoiceResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCallResponse;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\UsesClass;

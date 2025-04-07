@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model\Response;
+namespace OneMoreAngle\LlmUnchained\Model\Response;
 
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
 final readonly class ToolCallResponse implements ResponseInterface
 {

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\JsonSchema;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\JsonSchema;
 
 use ReflectionProperty;
 use ReflectionParameter;
 use ReflectionMethod;
 use Generator;
-use PhpLlm\LlmChain\Chain\JsonSchema\DescriptionParser;
-use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\User;
-use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\UserWithConstructor;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolRequiredParams;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolWithoutDocs;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\DescriptionParser;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\StructuredOutput\User;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\StructuredOutput\UserWithConstructor;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolRequiredParams;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolWithoutDocs;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;

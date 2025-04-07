@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Document;
+namespace OneMoreAngle\LlmUnchained\Document;
 
-use PhpLlm\LlmChain\Exception\RuntimeException;
+use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 
 final class NullVector implements VectorInterface
 {

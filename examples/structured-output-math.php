@@ -1,14 +1,14 @@
 <?php
 
-use PhpLlm\LlmChain\PlatformModel;
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
-use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
-use PhpLlm\LlmChain\Chain;
-use PhpLlm\LlmChain\Chain\StructuredOutput\ChainProcessor;
-use PhpLlm\LlmChain\Chain\StructuredOutput\ResponseFormatFactory;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
-use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\MathReasoning;
+use OneMoreAngle\LlmUnchained\PlatformModel;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Chain;
+use OneMoreAngle\LlmUnchained\Chain\StructuredOutput\ChainProcessor;
+use OneMoreAngle\LlmUnchained\Chain\StructuredOutput\ResponseFormatFactory;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\StructuredOutput\MathReasoning;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model\Message;
+namespace OneMoreAngle\LlmUnchained\Model\Message;
 
-use PhpLlm\LlmChain\Model\Message\Content\Audio;
-use PhpLlm\LlmChain\Model\Message\Content\Content;
-use PhpLlm\LlmChain\Model\Message\Content\Image;
-use PhpLlm\LlmChain\Model\Message\Content\Text;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Audio;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Content;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Image;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
 
 final readonly class UserMessage implements MessageInterface
 {

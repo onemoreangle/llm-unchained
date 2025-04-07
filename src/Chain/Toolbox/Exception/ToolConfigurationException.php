@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\Exception;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception;
 
 use ReflectionException;
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
 final class ToolConfigurationException extends InvalidArgumentException implements ExceptionInterface
 {

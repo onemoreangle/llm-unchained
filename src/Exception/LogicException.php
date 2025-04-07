@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Exception;
+namespace OneMoreAngle\LlmUnchained\Exception;
 
 class LogicException extends \LogicException implements ExceptionInterface
 {

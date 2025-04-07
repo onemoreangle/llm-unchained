@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Azure\Store;
+namespace OneMoreAngle\LlmUnchained\Bridge\Azure\Store;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Document\Metadata;
-use PhpLlm\LlmChain\Document\NullVector;
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Document\VectorDocument;
-use PhpLlm\LlmChain\Store\VectorStoreInterface;
+use OneMoreAngle\LlmUnchained\Document\Metadata;
+use OneMoreAngle\LlmUnchained\Document\NullVector;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Document\VectorDocument;
+use OneMoreAngle\LlmUnchained\Store\VectorStoreInterface;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 

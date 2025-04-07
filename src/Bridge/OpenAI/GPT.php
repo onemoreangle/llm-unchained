@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI;
 
-use PhpLlm\LlmChain\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
 final class GPT implements LanguageModel
 {

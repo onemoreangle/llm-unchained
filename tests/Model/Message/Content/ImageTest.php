@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Model\Message\Content;
+namespace OneMoreAngle\LlmUnchained\Tests\Model\Message\Content;
 
-use PhpLlm\LlmChain\Model\Message\Content\Image;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Image;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

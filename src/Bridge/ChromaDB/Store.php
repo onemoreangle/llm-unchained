@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\ChromaDB;
+namespace OneMoreAngle\LlmUnchained\Bridge\ChromaDB;
 
 use Codewithkyrian\ChromaDB\Client;
-use PhpLlm\LlmChain\Document\Metadata;
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Document\VectorDocument;
-use PhpLlm\LlmChain\Store\VectorStoreInterface;
+use OneMoreAngle\LlmUnchained\Document\Metadata;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Document\VectorDocument;
+use OneMoreAngle\LlmUnchained\Store\VectorStoreInterface;
 use Symfony\Component\Uid\Uuid;
 
 final readonly class Store implements VectorStoreInterface

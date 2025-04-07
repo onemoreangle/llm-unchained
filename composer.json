@@ -55,12 +55,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PhpLlm\\LlmChain\\": "src/"
+            "OneMoreAngle\\LlmUnchained\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PhpLlm\\LlmChain\\Tests\\": "tests/"
+            "OneMoreAngle\\LlmUnchained\\Tests\\": "tests/"
         }
     },
     "config": {

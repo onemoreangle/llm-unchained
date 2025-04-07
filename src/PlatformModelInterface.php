@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain;
+namespace OneMoreAngle\LlmUnchained;
 
-use PhpLlm\LlmChain\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
 interface PlatformModelInterface
 {

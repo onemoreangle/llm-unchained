@@ -1,8 +1,8 @@
 <?php
 
-use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
-use PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
-use PhpLlm\LlmChain\Bridge\OpenAI\Whisper\File;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper\File;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';

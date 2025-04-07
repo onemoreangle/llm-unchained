@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\JsonSchema\Attribute;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\JsonSchema\Attribute;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\Attribute\With;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Attribute\With;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

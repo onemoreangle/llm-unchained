@@ -1,7 +1,7 @@
 <?php
 
-use PhpLlm\LlmChain\Bridge\OpenAI\DallE;
-use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';

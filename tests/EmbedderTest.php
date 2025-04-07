@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests;
+namespace OneMoreAngle\LlmUnchained\Tests;
 
-use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
-use PhpLlm\LlmChain\Document\Metadata;
-use PhpLlm\LlmChain\Document\TextDocument;
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Document\VectorDocument;
-use PhpLlm\LlmChain\Embedder;
-use PhpLlm\LlmChain\Model\Message\ToolCallMessage;
-use PhpLlm\LlmChain\Model\Response\AsyncResponse;
-use PhpLlm\LlmChain\Model\Response\ToolCall;
-use PhpLlm\LlmChain\Model\Response\VectorResponse;
-use PhpLlm\LlmChain\Platform;
-use PhpLlm\LlmChain\Tests\Double\PlatformTestHandler;
-use PhpLlm\LlmChain\Tests\Double\TestStore;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
+use OneMoreAngle\LlmUnchained\Document\Metadata;
+use OneMoreAngle\LlmUnchained\Document\TextDocument;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Document\VectorDocument;
+use OneMoreAngle\LlmUnchained\Embedder;
+use OneMoreAngle\LlmUnchained\Model\Message\ToolCallMessage;
+use OneMoreAngle\LlmUnchained\Model\Response\AsyncResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Platform;
+use OneMoreAngle\LlmUnchained\Tests\Double\PlatformTestHandler;
+use OneMoreAngle\LlmUnchained\Tests\Double\TestStore;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\Test;

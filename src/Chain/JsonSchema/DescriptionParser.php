@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\JsonSchema;
+namespace OneMoreAngle\LlmUnchained\Chain\JsonSchema;
 
 use ReflectionProperty;
 use ReflectionParameter;

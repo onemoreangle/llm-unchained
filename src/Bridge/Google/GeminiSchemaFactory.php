@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Google;
+namespace OneMoreAngle\LlmUnchained\Bridge\Google;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\DescriptionParser;
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\DescriptionParser;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
 use Symfony\Component\TypeInfo\TypeResolver\TypeResolver;
 
 /**

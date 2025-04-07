@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model\Message\Content;
+namespace OneMoreAngle\LlmUnchained\Model\Message\Content;
 
 final readonly class Text implements Content
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain;
+namespace OneMoreAngle\LlmUnchained;
 
-use PhpLlm\LlmChain\Document\TextDocument;
-use PhpLlm\LlmChain\Document\VectorDocument;
-use PhpLlm\LlmChain\Model\EmbeddingsModel;
-use PhpLlm\LlmChain\Store\StoreInterface;
+use OneMoreAngle\LlmUnchained\Document\TextDocument;
+use OneMoreAngle\LlmUnchained\Document\VectorDocument;
+use OneMoreAngle\LlmUnchained\Model\EmbeddingsModel;
+use OneMoreAngle\LlmUnchained\Store\StoreInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\Clock\Clock;

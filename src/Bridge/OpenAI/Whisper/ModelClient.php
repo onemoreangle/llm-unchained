@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Bridge\OpenAI\Whisper;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Platform\ModelClient as BaseModelClient;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient as BaseModelClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;

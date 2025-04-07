@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\InputProcessor;
+namespace OneMoreAngle\LlmUnchained\Chain\InputProcessor;
 
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\InputProcessor;
-use PhpLlm\LlmChain\Exception\InvalidArgumentException;
-use PhpLlm\LlmChain\Model\LanguageModel;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\InputProcessor;
+use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
+use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
 final class LlmOverrideInputProcessor implements InputProcessor
 {

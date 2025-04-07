@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Chain\JsonSchema;
+namespace OneMoreAngle\LlmUnchained\Tests\Chain\JsonSchema;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\Attribute\With;
-use PhpLlm\LlmChain\Chain\JsonSchema\DescriptionParser;
-use PhpLlm\LlmChain\Chain\JsonSchema\Factory;
-use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\MathReasoning;
-use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\Step;
-use PhpLlm\LlmChain\Tests\Fixture\StructuredOutput\User;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolNoParams;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolOptionalParam;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolRequiredParams;
-use PhpLlm\LlmChain\Tests\Fixture\Tool\ToolWithToolParameterAttribute;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Attribute\With;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\DescriptionParser;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\StructuredOutput\MathReasoning;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\StructuredOutput\Step;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\StructuredOutput\User;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolNoParams;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolOptionalParam;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolRequiredParams;
+use OneMoreAngle\LlmUnchained\Tests\Fixture\Tool\ToolWithToolParameterAttribute;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\UsesClass;

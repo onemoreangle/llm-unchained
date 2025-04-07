@@ -1,16 +1,16 @@
 <?php
 
-use PhpLlm\LlmChain\PlatformModel;
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
-use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
-use PhpLlm\LlmChain\Chain;
-use PhpLlm\LlmChain\Chain\StructuredOutput\ChainProcessor as StructuredOutputProcessor;
-use PhpLlm\LlmChain\Chain\StructuredOutput\ResponseFormatFactory;
-use PhpLlm\LlmChain\Chain\Toolbox\ChainProcessor as ToolProcessor;
-use PhpLlm\LlmChain\Chain\Toolbox\Tool\Clock;
-use PhpLlm\LlmChain\Chain\Toolbox\Toolbox;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\PlatformModel;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Chain;
+use OneMoreAngle\LlmUnchained\Chain\StructuredOutput\ChainProcessor as StructuredOutputProcessor;
+use OneMoreAngle\LlmUnchained\Chain\StructuredOutput\ResponseFormatFactory;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ChainProcessor as ToolProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Tool\Clock;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Toolbox;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
 use Symfony\Component\Clock\Clock as SymfonyClock;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;

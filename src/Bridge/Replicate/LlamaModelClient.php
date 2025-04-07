@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\Replicate;
+namespace OneMoreAngle\LlmUnchained\Bridge\Replicate;
 
-use PhpLlm\LlmChain\Bridge\Meta\Llama;
-use PhpLlm\LlmChain\Bridge\Meta\LlamaPromptConverter;
-use PhpLlm\LlmChain\Model\Message\MessageBagInterface;
-use PhpLlm\LlmChain\Model\Message\SystemMessage;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Platform\ModelClient;
+use OneMoreAngle\LlmUnchained\Bridge\Meta\Llama;
+use OneMoreAngle\LlmUnchained\Bridge\Meta\LlamaPromptConverter;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
+use OneMoreAngle\LlmUnchained\Model\Message\SystemMessage;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 

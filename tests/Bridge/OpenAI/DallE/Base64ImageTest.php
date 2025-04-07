@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Bridge\OpenAI\DallE;
+namespace OneMoreAngle\LlmUnchained\Tests\Bridge\OpenAI\DallE;
 
 use InvalidArgumentException;
-use PhpLlm\LlmChain\Bridge\OpenAI\DallE\Base64Image;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\Base64Image;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;

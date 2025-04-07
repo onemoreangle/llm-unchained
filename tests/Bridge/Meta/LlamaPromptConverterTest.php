@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Bridge\Meta;
+namespace OneMoreAngle\LlmUnchained\Tests\Bridge\Meta;
 
-use PhpLlm\LlmChain\Bridge\Meta\LlamaPromptConverter;
-use PhpLlm\LlmChain\Model\Message\AssistantMessage;
-use PhpLlm\LlmChain\Model\Message\Content\Image;
-use PhpLlm\LlmChain\Model\Message\Content\Text;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
-use PhpLlm\LlmChain\Model\Message\SystemMessage;
-use PhpLlm\LlmChain\Model\Message\UserMessage;
+use OneMoreAngle\LlmUnchained\Bridge\Meta\LlamaPromptConverter;
+use OneMoreAngle\LlmUnchained\Model\Message\AssistantMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Image;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\Model\Message\SystemMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\UserMessage;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
@@ -90,6 +90,7 @@ final class LlamaPromptConverterTest extends TestCase
 
                 You are a helpful chatbot.<|eot_id|>
                 SYSTEM,
+
             Message::forSystem('You are a helpful chatbot.'),
         ];
 

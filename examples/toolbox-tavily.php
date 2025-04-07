@@ -1,14 +1,14 @@
 <?php
 
-use PhpLlm\LlmChain\PlatformModel;
-use PhpLlm\LlmChain\Bridge\OpenAI\GPT;
-use PhpLlm\LlmChain\Bridge\OpenAI\PlatformFactory;
-use PhpLlm\LlmChain\Chain;
-use PhpLlm\LlmChain\Chain\Toolbox\ChainProcessor;
-use PhpLlm\LlmChain\Chain\Toolbox\Tool\Tavily;
-use PhpLlm\LlmChain\Chain\Toolbox\Toolbox;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Message\MessageBag;
+use OneMoreAngle\LlmUnchained\PlatformModel;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Chain;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ChainProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Tool\Tavily;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Toolbox;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpClient\HttpClient;
 

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
+namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
 
 use SensitiveParameter;
-use PhpLlm\LlmChain\Bridge\OpenAI\Embeddings;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Platform\ModelClient as PlatformResponseFactory;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient as PlatformResponseFactory;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;

@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox;
 
 use Closure;
-use PhpLlm\LlmChain\Chain\ChainAwareProcessor;
-use PhpLlm\LlmChain\Chain\ChainAwareTrait;
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\InputProcessor;
-use PhpLlm\LlmChain\Chain\Output;
-use PhpLlm\LlmChain\Chain\OutputProcessor;
-use PhpLlm\LlmChain\Chain\Toolbox\Event\ToolCallsExecuted;
-use PhpLlm\LlmChain\Chain\Toolbox\StreamResponse as ToolboxStreamResponse;
-use PhpLlm\LlmChain\Exception\MissingModelSupport;
-use PhpLlm\LlmChain\Model\Message\AssistantMessage;
-use PhpLlm\LlmChain\Model\Message\Message;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface;
-use PhpLlm\LlmChain\Model\Response\StreamResponse as GenericStreamResponse;
-use PhpLlm\LlmChain\Model\Response\ToolCallResponse;
+use OneMoreAngle\LlmUnchained\Chain\ChainAwareProcessor;
+use OneMoreAngle\LlmUnchained\Chain\ChainAwareTrait;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\InputProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Output;
+use OneMoreAngle\LlmUnchained\Chain\OutputProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Event\ToolCallsExecuted;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\StreamResponse as ToolboxStreamResponse;
+use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
+use OneMoreAngle\LlmUnchained\Model\Message\AssistantMessage;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\StreamResponse as GenericStreamResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCallResponse;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 final class ChainProcessor implements InputProcessor, OutputProcessor, ChainAwareProcessor

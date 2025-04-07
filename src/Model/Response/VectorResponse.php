@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Model\Response;
+namespace OneMoreAngle\LlmUnchained\Model\Response;
 
-use PhpLlm\LlmChain\Document\Vector;
+use OneMoreAngle\LlmUnchained\Document\Vector;
 
 final readonly class VectorResponse implements ResponseInterface
 {

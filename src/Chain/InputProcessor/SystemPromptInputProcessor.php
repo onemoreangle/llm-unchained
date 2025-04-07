@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\InputProcessor;
+namespace OneMoreAngle\LlmUnchained\Chain\InputProcessor;
 
 use Stringable;
-use PhpLlm\LlmChain\Chain\Input;
-use PhpLlm\LlmChain\Chain\InputProcessor;
-use PhpLlm\LlmChain\Chain\Toolbox\Metadata;
-use PhpLlm\LlmChain\Chain\Toolbox\ToolboxInterface;
-use PhpLlm\LlmChain\Model\Message\Message;
+use OneMoreAngle\LlmUnchained\Chain\Input;
+use OneMoreAngle\LlmUnchained\Chain\InputProcessor;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\ToolboxInterface;
+use OneMoreAngle\LlmUnchained\Model\Message\Message;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 

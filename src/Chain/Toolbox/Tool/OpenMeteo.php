@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\Tool;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Tool;
 
-use PhpLlm\LlmChain\Chain\JsonSchema\Attribute\With;
-use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
+use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Attribute\With;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[AsTool(name: 'weather_current', description: 'get current weather for a location', method: 'current')]

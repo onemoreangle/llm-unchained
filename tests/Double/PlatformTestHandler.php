@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Double;
+namespace OneMoreAngle\LlmUnchained\Tests\Double;
 
-use PhpLlm\LlmChain\Document\Vector;
-use PhpLlm\LlmChain\Model\Model;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface;
-use PhpLlm\LlmChain\Model\Response\ResponseInterface as LlmResponse;
-use PhpLlm\LlmChain\Model\Response\VectorResponse;
-use PhpLlm\LlmChain\Platform;
-use PhpLlm\LlmChain\Platform\ModelClient;
-use PhpLlm\LlmChain\Platform\ResponseConverter;
+use OneMoreAngle\LlmUnchained\Document\Vector;
+use OneMoreAngle\LlmUnchained\Model\Model;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Platform;
+use OneMoreAngle\LlmUnchained\Platform\ModelClient;
+use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Component\HttpClient\Response\MockResponse;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Double;
+namespace OneMoreAngle\LlmUnchained\Tests\Double;
 
-use PhpLlm\LlmChain\Document\VectorDocument;
-use PhpLlm\LlmChain\Store\StoreInterface;
+use OneMoreAngle\LlmUnchained\Document\VectorDocument;
+use OneMoreAngle\LlmUnchained\Store\StoreInterface;
 
 final class TestStore implements StoreInterface
 {

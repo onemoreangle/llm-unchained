@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Tests\Model\Message\Content;
+namespace OneMoreAngle\LlmUnchained\Tests\Model\Message\Content;
 
 use InvalidArgumentException;
 use Generator;
-use PhpLlm\LlmChain\Model\Message\Content\Audio;
+use OneMoreAngle\LlmUnchained\Model\Message\Content\Audio;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;

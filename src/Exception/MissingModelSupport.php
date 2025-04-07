@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Exception;
+namespace OneMoreAngle\LlmUnchained\Exception;
 
 final class MissingModelSupport extends RuntimeException
 {

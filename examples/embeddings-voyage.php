@@ -1,8 +1,8 @@
 <?php
 
-use PhpLlm\LlmChain\Bridge\Voyage\PlatformFactory;
-use PhpLlm\LlmChain\Bridge\Voyage\Voyage;
-use PhpLlm\LlmChain\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Bridge\Voyage\PlatformFactory;
+use OneMoreAngle\LlmUnchained\Bridge\Voyage\Voyage;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';

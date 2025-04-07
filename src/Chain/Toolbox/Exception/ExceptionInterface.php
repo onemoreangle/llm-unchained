@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpLlm\LlmChain\Chain\Toolbox\Exception;
+namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception;
 
-use PhpLlm\LlmChain\Exception\ExceptionInterface as BaseExceptionInterface;
+use OneMoreAngle\LlmUnchained\Exception\ExceptionInterface as BaseExceptionInterface;
 
 interface ExceptionInterface extends BaseExceptionInterface
 {
