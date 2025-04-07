@@ -10,7 +10,7 @@ use OneMoreAngle\LlmUnchained\Chain\Output;
 use OneMoreAngle\LlmUnchained\Chain\OutputProcessor;
 use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
-use OneMoreAngle\LlmUnchained\Model\Response\StructuredResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\StructuredModelResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 
 final class ChainProcessor implements InputProcessor, OutputProcessor
@@ -51,7 +51,7 @@ final class ChainProcessor implements InputProcessor, OutputProcessor
     {
         $options = $output->options;
 
-        if ($output->response instanceof StructuredResponse) {
+        if ($output->response instanceof StructuredModelResponse) {
             return;
         }
 
@@ -60,12 +60,13 @@ final class ChainProcessor implements InputProcessor, OutputProcessor
         }
 
         if (!isset($this->outputStructure)) {
-            $output->response = new StructuredResponse(json_decode($output->response->getContent(), true));
+            $output->response = new StructuredModelResponse($output->response->getRawResponse(), json_decode($output->response->getContent(), true));
 
             return;
         }
 
-        $output->response = new StructuredResponse(
+        $output->response = new StructuredModelResponse(
+            $output->response->getRawResponse(),
             $this->serializer->deserialize($output->response->getContent(), $this->outputStructure, 'json')
         );
     }

@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Tests\Bridge\OpenAI\DallE;
 
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\Base64Image;
-use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\ImageResponse;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\ImageModelResponse;
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\ModelClient;
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\UrlImage;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -22,7 +22,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 #[UsesClass(DallE::class)]
 #[UsesClass(UrlImage::class)]
 #[UsesClass(Base64Image::class)]
-#[UsesClass(ImageResponse::class)]
+#[UsesClass(ImageModelResponse::class)]
 #[Small]
 final class ModelClientTest extends TestCase
 {
@@ -83,7 +83,7 @@ final class ModelClientTest extends TestCase
         $modelClient = new ModelClient(new MockHttpClient(), 'sk-api-key');
         $response = $modelClient->convert($httpResponse, ['response_format' => 'b64_json']);
 
-        self::assertInstanceOf(ImageResponse::class, $response);
+        self::assertInstanceOf(ImageModelResponse::class, $response);
         self::assertCount(1, $response->getContent());
         self::assertInstanceOf(Base64Image::class, $response->getContent()[0]);
         self::assertSame($emptyPixel, $response->getContent()[0]->encodedImage);

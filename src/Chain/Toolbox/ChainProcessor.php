@@ -12,13 +12,13 @@ use OneMoreAngle\LlmUnchained\Chain\InputProcessor;
 use OneMoreAngle\LlmUnchained\Chain\Output;
 use OneMoreAngle\LlmUnchained\Chain\OutputProcessor;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\Event\ToolCallsExecuted;
-use OneMoreAngle\LlmUnchained\Chain\Toolbox\StreamResponse as ToolboxStreamResponse;
+use OneMoreAngle\LlmUnchained\Chain\Toolbox\StreamModelResponse as ToolboxStreamResponse;
 use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
 use OneMoreAngle\LlmUnchained\Model\Message\AssistantMessage;
 use OneMoreAngle\LlmUnchained\Model\Message\Message;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
-use OneMoreAngle\LlmUnchained\Model\Response\StreamResponse as GenericStreamResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\ToolCallResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\StreamModelResponse as GenericStreamResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCallModelResponse;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 final class ChainProcessor implements InputProcessor, OutputProcessor, ChainAwareProcessor
@@ -57,14 +57,14 @@ final class ChainProcessor implements InputProcessor, OutputProcessor, ChainAwar
     {
         if ($output->response instanceof GenericStreamResponse) {
             $output->response = new ToolboxStreamResponse(
-                $output->response->getContent(),
+                $output->response,
                 $this->handleToolCallsCallback($output),
             );
 
             return;
         }
 
-        if (!$output->response instanceof ToolCallResponse) {
+        if (!$output->response instanceof ToolCallModelResponse) {
             return;
         }
 
@@ -81,7 +81,7 @@ final class ChainProcessor implements InputProcessor, OutputProcessor, ChainAwar
 
     private function handleToolCallsCallback(Output $output): Closure
     {
-        return function (ToolCallResponse $response, ?AssistantMessage $streamedAssistantResponse = null) use ($output): ResponseInterface {
+        return function (ToolCallModelResponse $response, ?AssistantMessage $streamedAssistantResponse = null) use ($output): ModelResponseInterface {
             $messages = clone $output->messages;
 
             if (null !== $streamedAssistantResponse && '' !== $streamedAssistantResponse->content) {
@@ -103,7 +103,7 @@ final class ChainProcessor implements InputProcessor, OutputProcessor, ChainAwar
                 $this->eventDispatcher?->dispatch($event);
 
                 $response = $event->hasResponse() ? $event->response : $this->chain->call($messages, $output->options);
-            } while ($response instanceof ToolCallResponse);
+            } while ($response instanceof ToolCallModelResponse);
 
             return $response;
         };

@@ -6,8 +6,8 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
 
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as BaseResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
@@ -22,6 +22,6 @@ final class ResponseConverter implements BaseResponseConverter
     {
         $data = $response->toArray();
 
-        return new TextResponse($data['text']);
+        return new TextModelResponse($response, $data['text']);
     }
 }

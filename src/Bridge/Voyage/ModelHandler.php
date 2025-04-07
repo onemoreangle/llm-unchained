@@ -8,8 +8,8 @@ use SensitiveParameter;
 use OneMoreAngle\LlmUnchained\Document\Vector;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorModelResponse;
 use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -41,14 +41,14 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
 
     public function convert(ResponseInterface $response, array $options = []): LlmResponse
     {
-        $response = $response->toArray();
+        $result = $response->toArray();
 
         if (!isset($response['data'])) {
             throw new RuntimeException('Response does not contain embedding data');
         }
 
-        $vectors = array_map(fn (array $data) => new Vector($data['embedding']), $response['data']);
+        $vectors = array_map(fn (array $data) => new Vector($data['embedding']), $result['data']);
 
-        return new VectorResponse($vectors[0]);
+        return new VectorModelResponse($response, $vectors[0]);
     }
 }

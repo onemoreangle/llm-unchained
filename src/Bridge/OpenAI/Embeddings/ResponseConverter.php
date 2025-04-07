@@ -8,7 +8,7 @@ use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
 use OneMoreAngle\LlmUnchained\Document\Vector;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorModelResponse;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as PlatformResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
@@ -19,7 +19,7 @@ final class ResponseConverter implements PlatformResponseConverter
         return $model instanceof Embeddings;
     }
 
-    public function convert(ResponseInterface $response, array $options = []): VectorResponse
+    public function convert(ResponseInterface $response, array $options = []): VectorModelResponse
     {
         $data = $response->toArray();
 
@@ -27,7 +27,8 @@ final class ResponseConverter implements PlatformResponseConverter
             throw new RuntimeException('Response does not contain data');
         }
 
-        return new VectorResponse(
+        return new VectorModelResponse(
+            $response,
             ...\array_map(
                 static fn (array $item): Vector => new Vector($item['embedding']),
                 $data['data']

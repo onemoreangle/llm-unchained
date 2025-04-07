@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class ImageResponse implements ResponseInterface
+class ImageModelResponse implements ModelResponseInterface
 {
     /** @var list<Base64Image|UrlImage> */
     private readonly array $images;
 
     public function __construct(
+        protected ResponseInterface $response,
         public ?string $revisedPrompt = null, // Only string on Dall-E 3 usage
         Base64Image|UrlImage ...$images,
     ) {
@@ -24,5 +26,10 @@ class ImageResponse implements ResponseInterface
     public function getContent(): array
     {
         return $this->images;
+    }
+
+    public function getRawResponse(): ResponseInterface
+    {
+        return $this->response;
     }
 }

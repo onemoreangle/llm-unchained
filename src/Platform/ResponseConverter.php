@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace OneMoreAngle\LlmUnchained\Platform;
 
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface as LlmResponse;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
 interface ResponseConverter

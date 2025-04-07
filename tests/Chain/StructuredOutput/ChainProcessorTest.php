@@ -11,8 +11,8 @@ use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
 use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
 use OneMoreAngle\LlmUnchained\Model\Response\Choice;
-use OneMoreAngle\LlmUnchained\Model\Response\StructuredResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\StructuredModelResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 use OneMoreAngle\LlmUnchained\Tests\Double\ConfigurableResponseFormatFactory;
 use OneMoreAngle\LlmUnchained\Tests\Fixture\SomeStructure;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -23,6 +23,7 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 #[CoversClass(ChainProcessor::class)]
 #[UsesClass(Input::class)]
@@ -30,8 +31,8 @@ use Symfony\Component\Serializer\SerializerInterface;
 #[UsesClass(MessageBag::class)]
 #[UsesClass(Choice::class)]
 #[UsesClass(MissingModelSupport::class)]
-#[UsesClass(TextResponse::class)]
-#[UsesClass(StructuredResponse::class)]
+#[UsesClass(TextModelResponse::class)]
+#[UsesClass(StructuredModelResponse::class)]
 final class ChainProcessorTest extends TestCase
 {
     #[Test]
@@ -97,13 +98,14 @@ final class ChainProcessorTest extends TestCase
         $input = new Input($llm, new MessageBag(), $options);
         $chainProcessor->processInput($input);
 
-        $response = new TextResponse('{"some": "data"}');
+        $responseMock = $this->createMock(ResponseInterface::class);
+        $response = new TextModelResponse($responseMock, '{"some": "data"}');
 
         $output = new Output($llm, $response, new MessageBag(), $input->getOptions());
 
         $chainProcessor->processOutput($output);
 
-        self::assertInstanceOf(StructuredResponse::class, $output->response);
+        self::assertInstanceOf(StructuredModelResponse::class, $output->response);
         self::assertInstanceOf(SomeStructure::class, $output->response->getContent());
         self::assertSame('data', $output->response->getContent()->some);
     }
@@ -116,7 +118,8 @@ final class ChainProcessorTest extends TestCase
         $chainProcessor = new ChainProcessor($responseFormatFactory, $serializer);
 
         $llm = $this->createMock(LanguageModel::class);
-        $response = new TextResponse('');
+        $responseMock = $this->createMock(ResponseInterface::class);
+        $response = new TextModelResponse($responseMock, '');
 
         $output = new Output($llm, $response, new MessageBag(), []);
 

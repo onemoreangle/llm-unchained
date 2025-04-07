@@ -9,10 +9,10 @@ use OneMoreAngle\LlmUnchained\Bridge\OpenAI\GPT\ResponseConverter;
 use OneMoreAngle\LlmUnchained\Exception\ContentFilterException;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Response\Choice;
-use OneMoreAngle\LlmUnchained\Model\Response\ChoiceResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ChoiceModelResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
-use OneMoreAngle\LlmUnchained\Model\Response\ToolCallResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCallModelResponse;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\UsesClass;
@@ -23,10 +23,10 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 #[CoversClass(ResponseConverter::class)]
 #[Small]
 #[UsesClass(Choice::class)]
-#[UsesClass(ChoiceResponse::class)]
-#[UsesClass(TextResponse::class)]
+#[UsesClass(ChoiceModelResponse::class)]
+#[UsesClass(TextModelResponse::class)]
 #[UsesClass(ToolCall::class)]
-#[UsesClass(ToolCallResponse::class)]
+#[UsesClass(ToolCallModelResponse::class)]
 class ResponseConverterTest extends TestCase
 {
     public function testConvertTextResponse(): void
@@ -47,7 +47,7 @@ class ResponseConverterTest extends TestCase
 
         $response = $converter->convert($httpResponse);
 
-        self::assertInstanceOf(TextResponse::class, $response);
+        self::assertInstanceOf(TextModelResponse::class, $response);
         self::assertSame('Hello world', $response->getContent());
     }
 
@@ -79,7 +79,7 @@ class ResponseConverterTest extends TestCase
 
         $response = $converter->convert($httpResponse);
 
-        self::assertInstanceOf(ToolCallResponse::class, $response);
+        self::assertInstanceOf(ToolCallModelResponse::class, $response);
         $toolCalls = $response->getContent();
         self::assertCount(1, $toolCalls);
         self::assertSame('call_123', $toolCalls[0]->id);
@@ -112,7 +112,7 @@ class ResponseConverterTest extends TestCase
 
         $response = $converter->convert($httpResponse);
 
-        self::assertInstanceOf(ChoiceResponse::class, $response);
+        self::assertInstanceOf(ChoiceModelResponse::class, $response);
         $choices = $response->getContent();
         self::assertCount(2, $choices);
         self::assertSame('Choice 1', $choices[0]->getContent());

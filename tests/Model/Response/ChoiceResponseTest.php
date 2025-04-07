@@ -6,14 +6,15 @@ namespace OneMoreAngle\LlmUnchained\Tests\Model\Response;
 
 use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 use OneMoreAngle\LlmUnchained\Model\Response\Choice;
-use OneMoreAngle\LlmUnchained\Model\Response\ChoiceResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ChoiceModelResponse;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
-#[CoversClass(ChoiceResponse::class)]
+#[CoversClass(ChoiceModelResponse::class)]
 #[UsesClass(Choice::class)]
 #[Small]
 final class ChoiceResponseTest extends TestCase
@@ -21,10 +22,11 @@ final class ChoiceResponseTest extends TestCase
     #[Test]
     public function choiceResponseCreation(): void
     {
+        $mockResponse = $this->createMock(ResponseInterface::class);
         $choice1 = new Choice('choice1');
         $choice2 = new Choice(null);
         $choice3 = new Choice('choice3');
-        $response = new ChoiceResponse($choice1, $choice2, $choice3);
+        $response = new ChoiceModelResponse($mockResponse, $choice1, $choice2, $choice3);
 
         self::assertCount(3, $response->getContent());
         self::assertSame('choice1', $response->getContent()[0]->getContent());
@@ -38,6 +40,7 @@ final class ChoiceResponseTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Response must have at least one choice.');
 
-        new ChoiceResponse();
+        $mockResponse = $this->createMock(ResponseInterface::class);
+        new ChoiceModelResponse($mockResponse);
     }
 }

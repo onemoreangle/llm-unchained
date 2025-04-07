@@ -6,9 +6,9 @@ namespace OneMoreAngle\LlmUnchained\Tests\Double;
 
 use OneMoreAngle\LlmUnchained\Document\Vector;
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorModelResponse;
 use OneMoreAngle\LlmUnchained\Platform;
 use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
@@ -20,11 +20,11 @@ final class PlatformTestHandler implements ModelClient, ResponseConverter
     public int $createCalls = 0;
 
     public function __construct(
-        private readonly ?ResponseInterface $create = null,
+        private readonly ?ModelResponseInterface $create = null,
     ) {
     }
 
-    public static function createPlatform(?ResponseInterface $create = null): Platform
+    public static function createPlatform(?ModelResponseInterface $create = null): Platform
     {
         $handler = new self($create);
 
@@ -45,6 +45,6 @@ final class PlatformTestHandler implements ModelClient, ResponseConverter
 
     public function convert(HttpResponse $response, array $options = []): LlmResponse
     {
-        return $this->create ?? new VectorResponse(new Vector([1, 2, 3]));
+        return $this->create ?? new VectorModelResponse($response, new Vector([1, 2, 3]));
     }
 }

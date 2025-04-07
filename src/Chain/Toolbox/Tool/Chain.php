@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Tool;
 use OneMoreAngle\LlmUnchained\ChainInterface;
 use OneMoreAngle\LlmUnchained\Model\Message\Message;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
-use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 
 final readonly class Chain
 {
@@ -23,7 +23,7 @@ final readonly class Chain
     {
         $response = $this->chain->call(new MessageBag(Message::ofUser($message)));
 
-        assert($response instanceof TextResponse);
+        assert($response instanceof TextModelResponse);
 
         return $response->getContent();
     }

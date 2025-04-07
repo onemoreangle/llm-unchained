@@ -8,7 +8,7 @@ use SensitiveParameter;
 use RuntimeException;
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface as LlmResponse;
 use OneMoreAngle\LlmUnchained\Platform\ModelClient as PlatformResponseFactory;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as PlatformResponseConverter;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -47,13 +47,13 @@ final readonly class ModelClient implements PlatformResponseFactory, PlatformRes
 
     public function convert(HttpResponse $response, array $options = []): LlmResponse
     {
-        $response = $response->toArray();
-        if (!isset($response['data'][0])) {
+        $result = $response->toArray();
+        if (!isset($result['data'][0])) {
             throw new RuntimeException('No image generated.');
         }
 
         $images = [];
-        foreach ($response['data'] as $image) {
+        foreach ($result['data'] as $image) {
             if ('url' === $options['response_format']) {
                 $images[] = new UrlImage($image['url']);
 
@@ -63,6 +63,6 @@ final readonly class ModelClient implements PlatformResponseFactory, PlatformRes
             $images[] = new Base64Image($image['b64_json']);
         }
 
-        return new ImageResponse($image['revised_prompt'] ?? null, ...$images);
+        return new ImageModelResponse($response, $image['revised_prompt'] ?? null, ...$images);
     }
 }

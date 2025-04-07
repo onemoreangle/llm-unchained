@@ -10,7 +10,7 @@ use OneMoreAngle\LlmUnchained\Chain\Toolbox\Tool\OpenMeteo;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\Toolbox;
 use OneMoreAngle\LlmUnchained\Model\Message\Message;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
-use OneMoreAngle\LlmUnchained\Model\Response\StructuredResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\StructuredModelResponse;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpClient\HttpClient;
@@ -36,7 +36,7 @@ $chain = new Chain(new PlatformModel($platform, $llm), [$processor], [$processor
 $eventDispatcher->addListener(ToolCallsExecuted::class, function (ToolCallsExecuted $event): void {
     foreach ($event->toolCallResults as $toolCallResult) {
         if (str_starts_with($toolCallResult->toolCall->name, 'weather_')) {
-            $event->response = new StructuredResponse($toolCallResult->result);
+            $event->response = new StructuredModelResponse($event->response->getRawResponse(), $toolCallResult->result);
         }
     }
 });

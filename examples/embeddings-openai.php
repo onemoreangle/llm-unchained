@@ -2,7 +2,7 @@
 
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings;
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
-use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorModelResponse;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
@@ -22,6 +22,6 @@ $response = $platform->request($embeddings, <<<TEXT
     country was very peaceful and prosperous. The people lived happily ever after.
     TEXT);
 
-assert($response instanceof VectorResponse);
+assert($response instanceof VectorModelResponse);
 
 echo 'Dimensions: '.$response->getContent()[0]->getDimensions().PHP_EOL;

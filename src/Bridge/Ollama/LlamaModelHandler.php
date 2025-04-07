@@ -8,8 +8,8 @@ use OneMoreAngle\LlmUnchained\Bridge\Meta\Llama;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -52,6 +52,6 @@ final readonly class LlamaModelHandler implements ModelClient, ResponseConverter
             throw new RuntimeException('Message does not contain content');
         }
 
-        return new TextResponse($data['message']['content']);
+        return new TextModelResponse($response, $data['message']['content']);
     }
 }

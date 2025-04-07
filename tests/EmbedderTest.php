@@ -11,9 +11,9 @@ use OneMoreAngle\LlmUnchained\Document\Vector;
 use OneMoreAngle\LlmUnchained\Document\VectorDocument;
 use OneMoreAngle\LlmUnchained\Embedder;
 use OneMoreAngle\LlmUnchained\Model\Message\ToolCallMessage;
-use OneMoreAngle\LlmUnchained\Model\Response\AsyncResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\AsyncModelResponse;
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
-use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorModelResponse;
 use OneMoreAngle\LlmUnchained\Platform;
 use OneMoreAngle\LlmUnchained\Tests\Double\PlatformTestHandler;
 use OneMoreAngle\LlmUnchained\Tests\Double\TestStore;
@@ -25,6 +25,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Clock\MockClock;
 use Symfony\Component\Uid\Uuid;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 #[CoversClass(Embedder::class)]
 #[Medium]
@@ -35,8 +36,8 @@ use Symfony\Component\Uid\Uuid;
 #[UsesClass(ToolCall::class)]
 #[UsesClass(Embeddings::class)]
 #[UsesClass(Platform::class)]
-#[UsesClass(AsyncResponse::class)]
-#[UsesClass(VectorResponse::class)]
+#[UsesClass(AsyncModelResponse::class)]
+#[UsesClass(VectorModelResponse::class)]
 final class EmbedderTest extends TestCase
 {
     #[Test]
@@ -45,8 +46,9 @@ final class EmbedderTest extends TestCase
         $document = new TextDocument($id = Uuid::v4(), 'Test content');
         $vector = new Vector([0.1, 0.2, 0.3]);
 
+        $responseMock = $this->createMock(ResponseInterface::class);
         $embedder = new Embedder(
-            PlatformTestHandler::createPlatform(new VectorResponse($vector)),
+            PlatformTestHandler::createPlatform(new VectorModelResponse($responseMock, $vector)),
             new Embeddings(),
             $store = new TestStore(),
             new MockClock(),
@@ -86,8 +88,9 @@ final class EmbedderTest extends TestCase
         $document = new TextDocument($id = Uuid::v4(), 'Test content', $metadata);
         $vector = new Vector([0.1, 0.2, 0.3]);
 
+        $responseMock = $this->createMock(ResponseInterface::class);
         $embedder = new Embedder(
-            PlatformTestHandler::createPlatform(new VectorResponse($vector)),
+            PlatformTestHandler::createPlatform(new VectorModelResponse($responseMock, $vector)),
             new Embeddings(),
             $store = new TestStore(),
             new MockClock(),
@@ -112,8 +115,9 @@ final class EmbedderTest extends TestCase
         $document1 = new TextDocument(Uuid::v4(), 'Test content 1');
         $document2 = new TextDocument(Uuid::v4(), 'Test content 2');
 
+        $responseMock = $this->createMock(ResponseInterface::class);
         $embedder = new Embedder(
-            PlatformTestHandler::createPlatform(new VectorResponse($vector1, $vector2)),
+            PlatformTestHandler::createPlatform(new VectorModelResponse($responseMock, $vector1, $vector2)),
             new Embeddings(),
             $store = new TestStore(),
             $clock = new MockClock('2024-01-01 00:00:00'),

@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Tests\Bridge\OpenAI\Embeddings;
 
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\Embeddings\ResponseConverter;
 use OneMoreAngle\LlmUnchained\Document\Vector;
-use OneMoreAngle\LlmUnchained\Model\Response\VectorResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\VectorModelResponse;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\Test;
@@ -17,7 +17,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 #[CoversClass(ResponseConverter::class)]
 #[Small]
 #[UsesClass(Vector::class)]
-#[UsesClass(VectorResponse::class)]
+#[UsesClass(VectorModelResponse::class)]
 class ResponseConverterTest extends TestCase
 {
     #[Test]

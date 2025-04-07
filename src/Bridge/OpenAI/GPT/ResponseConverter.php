@@ -10,12 +10,12 @@ use OneMoreAngle\LlmUnchained\Exception\ContentFilterException;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Model;
 use OneMoreAngle\LlmUnchained\Model\Response\Choice;
-use OneMoreAngle\LlmUnchained\Model\Response\ChoiceResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\StreamResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ChoiceModelResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\StreamModelResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
-use OneMoreAngle\LlmUnchained\Model\Response\ToolCallResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ToolCallModelResponse;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as PlatformResponseConverter;
 use Symfony\Component\HttpClient\Chunk\ServerSentEvent;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
@@ -33,7 +33,7 @@ final class ResponseConverter implements PlatformResponseConverter
     public function convert(HttpResponse $response, array $options = []): LlmResponse
     {
         if ($options['stream'] ?? false) {
-            return new StreamResponse($this->convertStream($response));
+            return new StreamModelResponse($response, $this->convertStream($response));
         }
 
         try {
@@ -56,14 +56,14 @@ final class ResponseConverter implements PlatformResponseConverter
         $choices = \array_map($this->convertChoice(...), $data['choices']);
 
         if (1 !== count($choices)) {
-            return new ChoiceResponse(...$choices);
+            return new ChoiceModelResponse($response, ...$choices);
         }
 
         if ($choices[0]->hasToolCall()) {
-            return new ToolCallResponse(...$choices[0]->getToolCalls());
+            return new ToolCallModelResponse($response, ...$choices[0]->getToolCalls());
         }
 
-        return new TextResponse($choices[0]->getContent());
+        return new TextModelResponse($response, $choices[0]->getContent());
     }
 
     private function convertStream(HttpResponse $response): Generator
@@ -86,7 +86,7 @@ final class ResponseConverter implements PlatformResponseConverter
             }
 
             if ([] !== $toolCalls && $this->isToolCallsStreamFinished($data)) {
-                yield new ToolCallResponse(...\array_map($this->convertToolCall(...), $toolCalls));
+                yield new ToolCallModelResponse($response, ...\array_map($this->convertToolCall(...), $toolCalls));
             }
 
             if (!isset($data['choices'][0]['delta']['content'])) {

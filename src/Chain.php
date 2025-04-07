@@ -14,8 +14,8 @@ use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
-use OneMoreAngle\LlmUnchained\Model\Response\AsyncResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\AsyncModelResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
@@ -50,7 +50,7 @@ readonly class Chain implements ChainInterface
     /**
      * @param array<string, mixed> $options
      */
-    public function call(MessageBagInterface $messages, array $options = []): ResponseInterface
+    public function call(MessageBagInterface $messages, array $options = []): ModelResponseInterface
     {
         $input = new Input($this->platformModel->getModel(), $messages, $options);
         array_map(fn (InputProcessor $processor) => $processor->processInput($input), $this->inputProcessors);
@@ -70,7 +70,7 @@ readonly class Chain implements ChainInterface
         try {
             $response = $this->platformModel->getPlatform()->request($llm, $messages, $options);
 
-            if ($response instanceof AsyncResponse) {
+            if ($response instanceof AsyncModelResponse) {
                 $response = $response->unwrap();
             }
         } catch (ClientExceptionInterface $e) {

@@ -7,8 +7,8 @@ namespace OneMoreAngle\LlmUnchained;
 use Traversable;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\AsyncResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface;
+use OneMoreAngle\LlmUnchained\Model\Response\AsyncModelResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface;
 use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
@@ -35,7 +35,7 @@ final readonly class Platform implements PlatformInterface
         $this->responseConverter = $responseConverter instanceof Traversable ? iterator_to_array($responseConverter) : $responseConverter;
     }
 
-    public function request(Model $model, array|string|object $input, array $options = []): ResponseInterface
+    public function request(Model $model, array|string|object $input, array $options = []): ModelResponseInterface
     {
         $options = array_merge($model->getOptions(), $options);
 
@@ -63,11 +63,11 @@ final readonly class Platform implements PlatformInterface
      * @param array<mixed>|string|object $input
      * @param array<string, mixed>       $options
      */
-    private function convertResponse(Model $model, object|array|string $input, HttpResponse $response, array $options): ResponseInterface
+    private function convertResponse(Model $model, object|array|string $input, HttpResponse $response, array $options): ModelResponseInterface
     {
         foreach ($this->responseConverter as $responseConverter) {
             if ($responseConverter->supports($model, $input)) {
-                return new AsyncResponse($responseConverter, $response, $options);
+                return new AsyncModelResponse($responseConverter, $response, $options);
             }
         }
 

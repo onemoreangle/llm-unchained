@@ -7,18 +7,18 @@ namespace OneMoreAngle\LlmUnchained\Model\Response;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
-final class AsyncResponse implements ResponseInterface
+class AsyncModelResponse implements ModelResponseInterface
 {
-    private bool $isConverted = false;
-    private ResponseInterface $convertedResponse;
+    protected bool $isConverted = false;
+    protected ModelResponseInterface $convertedResponse;
 
     /**
      * @param array<string, mixed> $options
      */
     public function __construct(
-        private readonly ResponseConverter $responseConverter,
-        private readonly HttpResponse $response,
-        private readonly array $options = [],
+        protected readonly ResponseConverter $responseConverter,
+        protected readonly HttpResponse $response,
+        protected readonly array $options = [],
     ) {
     }
 
@@ -27,7 +27,7 @@ final class AsyncResponse implements ResponseInterface
         return $this->unwrap()->getContent();
     }
 
-    public function unwrap(): ResponseInterface
+    public function unwrap(): ModelResponseInterface
     {
         if (!$this->isConverted) {
             $this->convertedResponse = $this->responseConverter->convert($this->response, $this->options);
@@ -35,5 +35,10 @@ final class AsyncResponse implements ResponseInterface
         }
 
         return $this->convertedResponse;
+    }
+
+    public function getRawResponse(): HttpResponse
+    {
+        return $this->response;
     }
 }

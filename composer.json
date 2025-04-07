@@ -69,7 +69,9 @@
     "scripts": {
         "test": [
             "php vendor/bin/phpunit",
-            "php vendor/bin/phpstan analyse --memory-limit 1G"
+            "php vendor/bin/phpstan analyse --memory-limit 1G",
+            "composer cs",
+            "composer rector"
         ],
         "cs": "php vendor/bin/php-cs-fixer fix --dry-run",
         "cs-fix": "php vendor/bin/php-cs-fixer fix",

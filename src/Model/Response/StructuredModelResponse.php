@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace OneMoreAngle\LlmUnchained\Model\Response;
 
-final readonly class StructuredResponse implements ResponseInterface
+use Symfony\Contracts\HttpClient\ResponseInterface;
+
+readonly class StructuredModelResponse implements ModelResponseInterface
 {
     /**
      * @param object|array<string, mixed> $structuredOutput
      */
     public function __construct(
+        protected ResponseInterface $response,
         private object|array $structuredOutput,
     ) {
     }
@@ -20,5 +23,10 @@ final readonly class StructuredResponse implements ResponseInterface
     public function getContent(): object|array
     {
         return $this->structuredOutput;
+    }
+
+    public function getRawResponse(): ResponseInterface
+    {
+        return $this->response;
     }
 }

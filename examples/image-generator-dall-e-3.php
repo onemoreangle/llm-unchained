@@ -1,9 +1,9 @@
 <?php
 
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
-use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\ImageResponse;
+use OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE\ImageModelResponse;
 use OneMoreAngle\LlmUnchained\Bridge\OpenAI\PlatformFactory;
-use OneMoreAngle\LlmUnchained\Model\Response\AsyncResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\AsyncModelResponse;
 use Symfony\Component\Dotenv\Dotenv;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
@@ -24,11 +24,11 @@ $response = $platform->request(
     ],
 );
 
-if ($response instanceof AsyncResponse) {
+if ($response instanceof AsyncModelResponse) {
     $response = $response->unwrap();
 }
 
-assert($response instanceof ImageResponse);
+assert($response instanceof ImageModelResponse);
 
 echo 'Revised Prompt: '.$response->revisedPrompt.PHP_EOL.PHP_EOL;
 

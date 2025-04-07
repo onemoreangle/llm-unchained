@@ -9,9 +9,9 @@ use Generator;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
 use OneMoreAngle\LlmUnchained\Model\Model;
-use OneMoreAngle\LlmUnchained\Model\Response\ResponseInterface as LlmResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\StreamResponse;
-use OneMoreAngle\LlmUnchained\Model\Response\TextResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface as LlmResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\StreamModelResponse;
+use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Component\HttpClient\Chunk\ServerSentEvent;
@@ -61,7 +61,7 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
     public function convert(ResponseInterface $response, array $options = []): LlmResponse
     {
         if ($options['stream'] ?? false) {
-            return new StreamResponse($this->convertStream($response));
+            return new StreamModelResponse($response, $this->convertStream($response));
         }
 
         $data = $response->toArray();
@@ -74,7 +74,7 @@ final readonly class ModelHandler implements ModelClient, ResponseConverter
             throw new RuntimeException('Response content does not contain any text');
         }
 
-        return new TextResponse($data['content'][0]['text']);
+        return new TextModelResponse($response, $data['content'][0]['text']);
     }
 
     private function convertStream(ResponseInterface $response): Generator
