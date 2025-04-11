@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Chain;
 use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
 
-final class Input
+class Input
 {
     /**
      * @param array<string, mixed> $options

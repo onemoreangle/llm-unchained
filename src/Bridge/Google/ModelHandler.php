@@ -28,7 +28,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 
-final readonly class ModelHandler implements ModelClient, ResponseConverter
+readonly class ModelHandler implements ModelClient, ResponseConverter
 {
     private EventSourceHttpClient $httpClient;
 

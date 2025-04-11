@@ -12,7 +12,7 @@ use OneMoreAngle\LlmUnchained\PlatformInterface;
 use OneMoreAngle\LlmUnchained\Store\VectorStoreInterface;
 
 #[AsTool('similarity_search', description: 'Searches for documents similar to a query or sentence.')]
-final class SimilaritySearch
+class SimilaritySearch
 {
     /**
      * @var VectorDocument[]

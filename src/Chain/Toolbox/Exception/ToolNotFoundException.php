@@ -8,7 +8,7 @@ use RuntimeException;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\ExecutionReference;
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
-final class ToolNotFoundException extends RuntimeException implements ExceptionInterface
+class ToolNotFoundException extends RuntimeException implements ExceptionInterface
 {
     public ?ToolCall $toolCall = null;
 

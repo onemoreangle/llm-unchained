@@ -12,7 +12,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  */
 #[AsTool('tavily_search', description: 'search for information on the internet', method: 'search')]
 #[AsTool('tavily_extract', description: 'fetch content from websites', method: 'extract')]
-final readonly class Tavily
+readonly class Tavily
 {
     /**
      * @param array<string, string|string[]|int|bool> $options

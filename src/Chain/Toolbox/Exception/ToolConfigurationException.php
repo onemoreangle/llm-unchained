@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception;
 use ReflectionException;
 use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
-final class ToolConfigurationException extends InvalidArgumentException implements ExceptionInterface
+class ToolConfigurationException extends InvalidArgumentException implements ExceptionInterface
 {
     public static function invalidMethod(string $toolClass, string $methodName, ReflectionException $previous): self
     {

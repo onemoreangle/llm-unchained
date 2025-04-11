@@ -9,7 +9,7 @@ use OneMoreAngle\LlmUnchained\Chain\InputProcessor;
 use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
-final class LlmOverrideInputProcessor implements InputProcessor
+class LlmOverrideInputProcessor implements InputProcessor
 {
     public function processInput(Input $input): void
     {

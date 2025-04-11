@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OneMoreAngle\LlmUnchained\Model\Message;
 
-final readonly class SystemMessage implements MessageInterface
+readonly class SystemMessage implements MessageInterface
 {
     public function __construct(public string $content)
     {

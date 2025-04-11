@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI;
 
 use OneMoreAngle\LlmUnchained\Model\EmbeddingsModel;
 
-final readonly class Embeddings implements EmbeddingsModel
+readonly class Embeddings implements EmbeddingsModel
 {
     public const TEXT_ADA_002 = 'text-embedding-ada-002';
     public const TEXT_3_LARGE = 'text-embedding-3-large';

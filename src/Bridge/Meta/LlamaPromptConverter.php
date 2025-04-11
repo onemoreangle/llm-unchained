@@ -12,7 +12,7 @@ use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
 use OneMoreAngle\LlmUnchained\Model\Message\SystemMessage;
 use OneMoreAngle\LlmUnchained\Model\Message\UserMessage;
 
-final class LlamaPromptConverter
+class LlamaPromptConverter
 {
     public function convertToPrompt(MessageBagInterface $messageBag): string
     {

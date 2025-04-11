@@ -13,7 +13,7 @@ use OneMoreAngle\LlmUnchained\Exception\MissingModelSupport;
 use OneMoreAngle\LlmUnchained\Model\Response\StructuredModelResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 
-final class ChainProcessor implements InputProcessor, OutputProcessor
+class ChainProcessor implements InputProcessor, OutputProcessor
 {
     private string $outputStructure;
 

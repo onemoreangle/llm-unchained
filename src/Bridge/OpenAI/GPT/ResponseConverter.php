@@ -23,7 +23,7 @@ use Symfony\Component\HttpClient\Exception\JsonException;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
-final class ResponseConverter implements PlatformResponseConverter
+class ResponseConverter implements PlatformResponseConverter
 {
     public function supports(Model $model, array|string|object $input): bool
     {

@@ -13,7 +13,7 @@ use Psr\Log\NullLogger;
 use Symfony\Component\Clock\Clock;
 use Symfony\Component\Clock\ClockInterface;
 
-final readonly class Embedder
+readonly class Embedder
 {
     private ClockInterface $clock;
 

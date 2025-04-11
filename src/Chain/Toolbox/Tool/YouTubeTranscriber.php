@@ -12,7 +12,7 @@ use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[AsTool('youtube_transcript', 'Fetches the transcript of a YouTube video')]
-final readonly class YouTubeTranscriber
+readonly class YouTubeTranscriber
 {
     public function __construct(
         private HttpClientInterface $client,

@@ -11,7 +11,7 @@ use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 /**
  * Catches exceptions thrown by the inner tool box and returns error messages for the LLM instead.
  */
-final readonly class FaultTolerantToolbox implements ToolboxInterface
+readonly class FaultTolerantToolbox implements ToolboxInterface
 {
     public function __construct(
         private ToolboxInterface $innerToolbox,

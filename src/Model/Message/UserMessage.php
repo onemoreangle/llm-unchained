@@ -9,7 +9,7 @@ use OneMoreAngle\LlmUnchained\Model\Message\Content\Content;
 use OneMoreAngle\LlmUnchained\Model\Message\Content\Image;
 use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
 
-final readonly class UserMessage implements MessageInterface
+readonly class UserMessage implements MessageInterface
 {
     /**
      * @var list<Content>

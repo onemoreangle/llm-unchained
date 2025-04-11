@@ -13,7 +13,7 @@ use OneMoreAngle\LlmUnchained\Model\Message\Message;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
-final readonly class SystemPromptInputProcessor implements InputProcessor
+readonly class SystemPromptInputProcessor implements InputProcessor
 {
     /**
      * @param Stringable|string $systemPrompt the system prompt to prepend to the input messages

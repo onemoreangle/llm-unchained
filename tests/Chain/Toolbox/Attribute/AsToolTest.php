@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(AsTool::class)]
-final class AsToolTest extends TestCase
+class AsToolTest extends TestCase
 {
     #[Test]
     public function canBeConstructed(): void

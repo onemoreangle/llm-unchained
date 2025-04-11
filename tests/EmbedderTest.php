@@ -38,7 +38,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 #[UsesClass(Platform::class)]
 #[UsesClass(AsyncModelResponse::class)]
 #[UsesClass(VectorModelResponse::class)]
-final class EmbedderTest extends TestCase
+class EmbedderTest extends TestCase
 {
     #[Test]
     public function embedSingleDocument(): void

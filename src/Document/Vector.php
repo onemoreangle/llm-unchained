@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Document;
 
 use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
-final class Vector implements VectorInterface
+class Vector implements VectorInterface
 {
     /**
      * @param list<float> $data

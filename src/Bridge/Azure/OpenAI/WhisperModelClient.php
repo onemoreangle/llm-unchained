@@ -14,7 +14,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 
-final readonly class WhisperModelClient implements ModelClient
+readonly class WhisperModelClient implements ModelClient
 {
     private EventSourceHttpClient $httpClient;
 

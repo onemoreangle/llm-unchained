@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
 
-final class MemoryFactory extends AbstractFactory
+class MemoryFactory extends AbstractFactory
 {
     /**
      * @var array<string, AsTool[]>

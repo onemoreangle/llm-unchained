@@ -8,7 +8,7 @@ use RuntimeException;
 use Throwable;
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
-final class ToolExecutionException extends RuntimeException implements ExceptionInterface
+class ToolExecutionException extends RuntimeException implements ExceptionInterface
 {
     public ?ToolCall $toolCall = null;
 

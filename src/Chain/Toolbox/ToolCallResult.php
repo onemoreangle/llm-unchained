@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Chain\Toolbox;
 
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
-final readonly class ToolCallResult
+readonly class ToolCallResult
 {
     public function __construct(
         public ToolCall $toolCall,

@@ -13,7 +13,7 @@ use OneMoreAngle\LlmUnchained\Store\VectorStoreInterface;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final readonly class SearchStore implements VectorStoreInterface
+readonly class SearchStore implements VectorStoreInterface
 {
     /**
      * @param string $vectorFieldName The name of the field int the index that contains the vector

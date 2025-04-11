@@ -41,7 +41,7 @@ use Symfony\Component\Uid\Uuid;
  *
  * @author Oskar Stark <oskarstark@googlemail.com>
  */
-final readonly class Store implements VectorStoreInterface, InitializableStoreInterface
+readonly class Store implements VectorStoreInterface, InitializableStoreInterface
 {
     /**
      * @param string $databaseName    The name of the database

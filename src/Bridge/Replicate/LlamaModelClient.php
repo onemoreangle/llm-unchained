@@ -13,7 +13,7 @@ use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 
-final readonly class LlamaModelClient implements ModelClient
+readonly class LlamaModelClient implements ModelClient
 {
     public function __construct(
         private Client $client,

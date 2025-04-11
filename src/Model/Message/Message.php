@@ -8,7 +8,7 @@ use OneMoreAngle\LlmUnchained\Model\Message\Content\Content;
 use OneMoreAngle\LlmUnchained\Model\Message\Content\Text;
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
-final readonly class Message
+readonly class Message
 {
     // Disabled by default, just a bridge to the specific messages
     private function __construct()

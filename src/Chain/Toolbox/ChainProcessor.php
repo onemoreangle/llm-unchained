@@ -21,7 +21,7 @@ use OneMoreAngle\LlmUnchained\Model\Response\StreamModelResponse as GenericStrea
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCallModelResponse;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
-final class ChainProcessor implements InputProcessor, OutputProcessor, ChainAwareProcessor
+class ChainProcessor implements InputProcessor, OutputProcessor, ChainAwareProcessor
 {
     use ChainAwareTrait;
 

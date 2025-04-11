@@ -8,7 +8,7 @@ use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[AsTool(name: 'serpapi', description: 'search for information on the internet')]
-final readonly class SerpApi
+readonly class SerpApi
 {
     public function __construct(
         private HttpClientInterface $httpClient,

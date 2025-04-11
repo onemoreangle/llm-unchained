@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Model\Message\Content;
 
 use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
-final readonly class Image implements Content
+readonly class Image implements Content
 {
     public string $url;
 

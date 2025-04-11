@@ -23,7 +23,7 @@ use OneMoreAngle\LlmUnchained\Platform\RequestBodyProducer;
 
 use function Symfony\Component\String\u;
 
-final class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVisitor, ContentVisitor, JsonSerializable
+class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVisitor, ContentVisitor, JsonSerializable
 {
     /**
      * @param array<string, mixed> $options

@@ -10,7 +10,7 @@ use Symfony\Component\Clock\Clock;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final class PlatformFactory
+class PlatformFactory
 {
     public static function create(
         #[SensitiveParameter]

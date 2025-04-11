@@ -11,7 +11,7 @@ use OneMoreAngle\LlmUnchained\Document\VectorDocument;
 use OneMoreAngle\LlmUnchained\Store\VectorStoreInterface;
 use Symfony\Component\Uid\Uuid;
 
-final readonly class Store implements VectorStoreInterface
+readonly class Store implements VectorStoreInterface
 {
     public function __construct(
         private Client $client,

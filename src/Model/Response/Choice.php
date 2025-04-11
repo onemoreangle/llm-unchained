@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OneMoreAngle\LlmUnchained\Model\Response;
 
-final readonly class Choice
+readonly class Choice
 {
     /**
      * @param ToolCall[] $toolCalls

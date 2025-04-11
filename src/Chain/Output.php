@@ -8,7 +8,7 @@ use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
 use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface;
 
-final class Output
+class Output
 {
     /**
      * @param array<string, mixed> $options

@@ -8,7 +8,7 @@ use JsonSerializable;
 use Stringable;
 use DateTimeInterface;
 
-final readonly class ToolResultConverter
+readonly class ToolResultConverter
 {
     /**
      * @param JsonSerializable|Stringable|array<int|string, mixed>|float|string|null $result

@@ -9,7 +9,7 @@ use OneMoreAngle\LlmUnchained\Model\Message\Message;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBag;
 use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 
-final readonly class Chain
+readonly class Chain
 {
     public function __construct(
         private ChainInterface $chain,

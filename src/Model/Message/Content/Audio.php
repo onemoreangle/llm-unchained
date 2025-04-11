@@ -8,7 +8,7 @@ use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
 use function Symfony\Component\String\u;
 
-final readonly class Audio implements Content
+readonly class Audio implements Content
 {
     public function __construct(
         public string $data,

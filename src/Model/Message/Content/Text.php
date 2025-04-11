@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OneMoreAngle\LlmUnchained\Model\Message\Content;
 
-final readonly class Text implements Content
+readonly class Text implements Content
 {
     public function __construct(
         public string $text,

@@ -12,7 +12,7 @@ use OneMoreAngle\LlmUnchained\Model\Response\VectorModelResponse;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as PlatformResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-final class ResponseConverter implements PlatformResponseConverter
+class ResponseConverter implements PlatformResponseConverter
 {
     public function supports(Model $model, array|string|object $input): bool
     {

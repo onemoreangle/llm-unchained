@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OneMoreAngle\LlmUnchained\Exception;
 
-final class MissingModelSupport extends RuntimeException
+class MissingModelSupport extends RuntimeException
 {
     private function __construct(string $model, string $support)
     {

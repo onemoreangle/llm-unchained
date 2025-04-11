@@ -10,7 +10,7 @@ use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
 /**
  * @phpstan-import-type JsonSchema from Factory
  */
-final readonly class Metadata implements JsonSerializable
+readonly class Metadata implements JsonSerializable
 {
     /**
      * @param JsonSchema|null $parameters

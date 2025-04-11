@@ -15,7 +15,7 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ToolResultConverter::class)]
-final class ToolResultConverterTest extends TestCase
+class ToolResultConverterTest extends TestCase
 {
     #[Test]
     #[DataProvider('provideResults')]

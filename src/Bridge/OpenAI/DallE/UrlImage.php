@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 
 use Webmozart\Assert\Assert;
 
-final readonly class UrlImage
+readonly class UrlImage
 {
     public function __construct(
         public string $url,

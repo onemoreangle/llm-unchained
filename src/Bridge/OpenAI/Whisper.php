@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI;
 
 use OneMoreAngle\LlmUnchained\Model\Model;
 
-final readonly class Whisper implements Model
+readonly class Whisper implements Model
 {
     public const WHISPER_1 = 'whisper-1';
 

@@ -9,7 +9,7 @@ use Symfony\Component\Clock\ClockInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-final readonly class Client
+readonly class Client
 {
     public function __construct(
         private HttpClientInterface $httpClient,

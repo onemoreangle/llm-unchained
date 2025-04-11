@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute;
 use Attribute;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]
-final readonly class AsTool
+readonly class AsTool
 {
     public function __construct(
         public string $name,

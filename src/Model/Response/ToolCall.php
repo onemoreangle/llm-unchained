@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Model\Response;
 
 use JsonSerializable;
 
-final readonly class ToolCall implements JsonSerializable
+readonly class ToolCall implements JsonSerializable
 {
     /**
      * @param array<string, mixed> $arguments

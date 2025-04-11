@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\Whisper;
 
 use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
-final readonly class File
+readonly class File
 {
     public function __construct(
         public string $path,

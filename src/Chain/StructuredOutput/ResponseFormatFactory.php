@@ -8,7 +8,7 @@ use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Factory;
 
 use function Symfony\Component\String\u;
 
-final readonly class ResponseFormatFactory implements ResponseFormatFactoryInterface
+readonly class ResponseFormatFactory implements ResponseFormatFactoryInterface
 {
     public function __construct(
         private Factory $schemaFactory = new Factory(),

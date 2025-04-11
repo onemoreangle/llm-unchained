@@ -13,7 +13,7 @@ use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
-final class Toolbox implements ToolboxInterface
+class Toolbox implements ToolboxInterface
 {
     /**
      * @var list<mixed>

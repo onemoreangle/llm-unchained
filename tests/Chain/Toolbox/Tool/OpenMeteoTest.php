@@ -12,7 +12,7 @@ use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;
 
 #[CoversClass(OpenMeteo::class)]
-final class OpenMeteoTest extends TestCase
+class OpenMeteoTest extends TestCase
 {
     #[Test]
     public function current(): void

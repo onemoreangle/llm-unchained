@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\Anthropic;
 
 use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
-final readonly class Claude implements LanguageModel
+readonly class Claude implements LanguageModel
 {
     public const VERSION_3_HAIKU = 'claude-3-haiku-20240307';
     public const VERSION_3_SONNET = 'claude-3-sonnet-20240229';

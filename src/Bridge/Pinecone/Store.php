@@ -12,7 +12,7 @@ use Probots\Pinecone\Client;
 use Probots\Pinecone\Resources\Data\VectorResource;
 use Symfony\Component\Uid\Uuid;
 
-final readonly class Store implements VectorStoreInterface
+readonly class Store implements VectorStoreInterface
 {
     /**
      * @param array<string, mixed> $filter

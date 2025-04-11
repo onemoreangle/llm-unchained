@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Document;
 
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 
-final class NullVector implements VectorInterface
+class NullVector implements VectorInterface
 {
     public function getData(): array
     {

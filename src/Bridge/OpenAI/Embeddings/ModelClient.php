@@ -12,7 +12,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 
-final readonly class ModelClient implements PlatformResponseFactory
+readonly class ModelClient implements PlatformResponseFactory
 {
     public function __construct(
         private HttpClientInterface $httpClient,

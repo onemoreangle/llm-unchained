@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Event;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\ToolCallResult;
 use OneMoreAngle\LlmUnchained\Model\Response\ModelResponseInterface;
 
-final class ToolCallsExecuted
+class ToolCallsExecuted
 {
     /**
      * @var ToolCallResult[]

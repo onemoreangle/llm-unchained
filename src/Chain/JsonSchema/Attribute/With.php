@@ -8,7 +8,7 @@ use Attribute;
 use Webmozart\Assert\Assert;
 
 #[Attribute(Attribute::TARGET_PARAMETER)]
-final readonly class With
+readonly class With
 {
     /**
      * @param list<int|string>|null    $enum

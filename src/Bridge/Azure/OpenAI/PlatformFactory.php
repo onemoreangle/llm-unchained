@@ -12,7 +12,7 @@ use OneMoreAngle\LlmUnchained\Platform;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final readonly class PlatformFactory
+readonly class PlatformFactory
 {
     public static function create(
         string $baseUrl,

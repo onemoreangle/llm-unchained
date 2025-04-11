@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Document;
 use Symfony\Component\Uid\Uuid;
 use Webmozart\Assert\Assert;
 
-final readonly class TextDocument
+readonly class TextDocument
 {
     public function __construct(
         public Uuid $id,

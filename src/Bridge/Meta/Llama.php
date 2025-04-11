@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\Meta;
 
 use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
-final readonly class Llama implements LanguageModel
+readonly class Llama implements LanguageModel
 {
     public const LLAMA_3_2_90B_VISION_INSTRUCT = 'llama-3.2-90b-vision-instruct';
     public const LLAMA_3_2_11B_VISION_INSTRUCT = 'llama-3.2-11b-vision-instruct';

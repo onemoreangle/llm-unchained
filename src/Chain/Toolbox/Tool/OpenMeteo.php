@@ -10,7 +10,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[AsTool(name: 'weather_current', description: 'get current weather for a location', method: 'current')]
 #[AsTool(name: 'weather_forecast', description: 'get weather forecast for a location', method: 'forecast')]
-final readonly class OpenMeteo
+readonly class OpenMeteo
 {
     private const WMO_CODES = [
         0 => 'Clear',

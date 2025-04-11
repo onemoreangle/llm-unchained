@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenRouter;
 use OneMoreAngle\LlmUnchained\Bridge\Meta\Llama;
 use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
-final readonly class GenericModel implements LanguageModel
+readonly class GenericModel implements LanguageModel
 {
     /**
      * @param array<string, mixed> $options

@@ -8,7 +8,7 @@ use OneMoreAngle\LlmUnchained\Platform;
 use Symfony\Component\HttpClient\EventSourceHttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final class PlatformFactory
+class PlatformFactory
 {
     public static function create(
         string $hostUrl = 'http://localhost:11434',

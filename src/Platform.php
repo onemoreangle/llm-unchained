@@ -13,7 +13,7 @@ use OneMoreAngle\LlmUnchained\Platform\ModelClient;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
-final readonly class Platform implements PlatformInterface
+readonly class Platform implements PlatformInterface
 {
     /**
      * @var ModelClient[]

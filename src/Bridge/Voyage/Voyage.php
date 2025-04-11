@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\Voyage;
 
 use OneMoreAngle\LlmUnchained\Model\EmbeddingsModel;
 
-final readonly class Voyage implements EmbeddingsModel
+readonly class Voyage implements EmbeddingsModel
 {
     public const VERSION_V3 = 'voyage-3';
     public const VERSION_V3_LITE = 'voyage-3-lite';

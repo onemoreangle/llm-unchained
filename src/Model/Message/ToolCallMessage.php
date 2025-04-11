@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Model\Message;
 
 use OneMoreAngle\LlmUnchained\Model\Response\ToolCall;
 
-final readonly class ToolCallMessage implements MessageInterface
+readonly class ToolCallMessage implements MessageInterface
 {
     public function __construct(
         public ToolCall $toolCall,

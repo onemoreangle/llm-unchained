@@ -8,7 +8,7 @@ use Traversable;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception\ToolMetadataException;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\MetadataFactory;
 
-final readonly class ChainFactory implements MetadataFactory
+readonly class ChainFactory implements MetadataFactory
 {
     /**
      * @var list<MetadataFactory>

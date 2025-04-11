@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\Google;
 
 use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
-final readonly class GoogleModel implements LanguageModel
+readonly class GoogleModel implements LanguageModel
 {
     public const GEMINI_2_5_PRO_PREVIEW = 'gemini-2.5-pro-preview-03-25';
     public const GEMINI_2_FLASH = 'gemini-2.0-flash';

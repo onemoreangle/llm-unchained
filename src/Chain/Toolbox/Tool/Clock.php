@@ -9,7 +9,7 @@ use Symfony\Component\Clock\Clock as SymfonyClock;
 use Symfony\Component\Clock\ClockInterface;
 
 #[AsTool('clock', description: 'Provides the current date and time.')]
-final readonly class Clock
+readonly class Clock
 {
     public function __construct(
         private ClockInterface $clock = new SymfonyClock(),

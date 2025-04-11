@@ -13,7 +13,7 @@ use OneMoreAngle\LlmUnchained\Chain\Toolbox\Metadata;
 /**
  * Metadata factory that uses reflection in combination with `#[AsTool]` attribute to extract metadata from tools.
  */
-final class ReflectionFactory extends AbstractFactory
+class ReflectionFactory extends AbstractFactory
 {
     /**
      * @param class-string $reference

@@ -42,7 +42,7 @@ use PHPUnit\Framework\TestCase;
 #[UsesClass(ToolConfigurationException::class)]
 #[UsesClass(ToolNotFoundException::class)]
 #[UsesClass(ToolExecutionException::class)]
-final class ToolboxTest extends TestCase
+class ToolboxTest extends TestCase
 {
     private Toolbox $toolbox;
 

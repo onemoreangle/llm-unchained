@@ -13,7 +13,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 
-final readonly class GPTModelClient implements ModelClient
+readonly class GPTModelClient implements ModelClient
 {
     private EventSourceHttpClient $httpClient;
 

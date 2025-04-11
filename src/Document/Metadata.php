@@ -9,6 +9,6 @@ use ArrayObject;
 /**
  * @template-extends ArrayObject<string, mixed>
  */
-final class Metadata extends ArrayObject
+class Metadata extends ArrayObject
 {
 }

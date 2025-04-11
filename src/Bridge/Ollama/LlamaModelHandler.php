@@ -15,7 +15,7 @@ use OneMoreAngle\LlmUnchained\Platform\ResponseConverter;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-final readonly class LlamaModelHandler implements ModelClient, ResponseConverter
+readonly class LlamaModelHandler implements ModelClient, ResponseConverter
 {
     public function __construct(
         private HttpClientInterface $httpClient,

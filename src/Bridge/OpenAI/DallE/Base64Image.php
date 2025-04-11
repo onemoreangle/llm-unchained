@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI\DallE;
 
 use Webmozart\Assert\Assert;
 
-final readonly class Base64Image
+readonly class Base64Image
 {
     public function __construct(
         public string $encodedImage,

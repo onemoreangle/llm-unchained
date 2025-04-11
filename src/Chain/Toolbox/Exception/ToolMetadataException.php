@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Chain\Toolbox\Exception;
 use OneMoreAngle\LlmUnchained\Chain\Toolbox\Attribute\AsTool;
 use OneMoreAngle\LlmUnchained\Exception\InvalidArgumentException;
 
-final class ToolMetadataException extends InvalidArgumentException implements ExceptionInterface
+class ToolMetadataException extends InvalidArgumentException implements ExceptionInterface
 {
     public static function invalidReference(mixed $reference): self
     {

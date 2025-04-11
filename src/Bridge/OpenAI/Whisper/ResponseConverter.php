@@ -11,7 +11,7 @@ use OneMoreAngle\LlmUnchained\Model\Response\TextModelResponse;
 use OneMoreAngle\LlmUnchained\Platform\ResponseConverter as BaseResponseConverter;
 use Symfony\Contracts\HttpClient\ResponseInterface as HttpResponse;
 
-final class ResponseConverter implements BaseResponseConverter
+class ResponseConverter implements BaseResponseConverter
 {
     public function supports(Model $model, object|array|string $input): bool
     {

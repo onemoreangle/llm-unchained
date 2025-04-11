@@ -7,7 +7,7 @@ namespace OneMoreAngle\LlmUnchained\Chain\JsonSchema;
 use ReflectionProperty;
 use ReflectionParameter;
 
-final readonly class DescriptionParser
+readonly class DescriptionParser
 {
     public function getDescription(ReflectionProperty|ReflectionParameter $reflector): string
     {

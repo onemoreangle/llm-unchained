@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Document;
 
 use Symfony\Component\Uid\Uuid;
 
-final readonly class VectorDocument
+readonly class VectorDocument
 {
     public function __construct(
         public Uuid $id,

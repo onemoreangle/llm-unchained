@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI;
 
 use OneMoreAngle\LlmUnchained\Model\LanguageModel;
 
-final class GPT implements LanguageModel
+class GPT implements LanguageModel
 {
     public const GPT_35_TURBO = 'gpt-3.5-turbo';
     public const GPT_35_TURBO_INSTRUCT = 'gpt-3.5-turbo-instruct';

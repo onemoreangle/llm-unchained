@@ -6,7 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\OpenAI;
 
 use OneMoreAngle\LlmUnchained\Model\Model;
 
-final readonly class DallE implements Model
+readonly class DallE implements Model
 {
     public const DALL_E_2 = 'dall-e-2';
     public const DALL_E_3 = 'dall-e-3';
