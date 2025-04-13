@@ -10,6 +10,7 @@ use InvalidArgumentException;
 use ReflectionProperty;
 use ReflectionParameter;
 use OneMoreAngle\LlmUnchained\Chain\JsonSchema\Attribute\With;
+use Symfony\Component\Serializer\Attribute\Ignore;
 use Symfony\Component\TypeInfo\Type;
 use Symfony\Component\TypeInfo\Type\BuiltinType;
 use Symfony\Component\TypeInfo\Type\CollectionType;
@@ -97,6 +98,10 @@ readonly class Factory
         ];
 
         foreach ($elements as $element) {
+            if ($element->getAttributes(Ignore::class)) {
+                continue;
+            }
+
             $name = $element->getName();
             $type = $this->typeResolver->resolve($element);
             $schema = $this->getTypeSchema($type);
