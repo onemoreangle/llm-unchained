@@ -36,7 +36,7 @@ class Dummy
 }
 
 $platform = PlatformFactory::create($_ENV['GOOGLE_API_KEY']);
-$llm = new GoogleModel(GoogleModel::GEMINI_2_FLASH);
+$llm = new GoogleModel(GoogleModel::GEMINI_2_5_FLASH);
 $dummy = new Dummy();
 $clock = new Clock(new SymfonyClock());
 

@@ -6,6 +6,7 @@ namespace OneMoreAngle\LlmUnchained\Bridge\Google;
 
 use SensitiveParameter;
 use Generator;
+use OneMoreAngle\LlmUnchained\Exception\ContentFilterException;
 use OneMoreAngle\LlmUnchained\Exception\RuntimeException;
 use OneMoreAngle\LlmUnchained\Model\Message\MessageBagInterface;
 use OneMoreAngle\LlmUnchained\Model\Model;
@@ -53,7 +54,15 @@ readonly class ModelHandler implements ModelClient, ResponseConverter
 
         $body = new GoogleRequestBodyProducer($input, $options, $model);
 
-        return $this->httpClient->request('POST', sprintf('https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent', $model->getVersion()), [
+        $stream = $options['stream'] ?? false;
+        $method = $stream ? 'streamGenerateContent' : 'generateContent';
+        $url = sprintf('https://generativelanguage.googleapis.com/v1beta/models/%s:%s', $model->getVersion(), $method);
+
+        if ($stream) {
+            $url .= '?alt=sse';
+        }
+
+        return $this->httpClient->request('POST', $url, [
             'headers' => [
                 'x-goog-api-key' => $this->apiKey,
             ],
@@ -105,7 +114,13 @@ readonly class ModelHandler implements ModelClient, ResponseConverter
             return new TextModelResponse($response, $candidate['content']['parts'][0]['text']);
         }
 
-        throw new RuntimeException('Response format not supported');
+        $finishReason = $candidate['finishReason'] ?? 'UNKNOWN';
+
+        if (in_array($finishReason, ['SAFETY', 'RECITATION'], true)) {
+            throw new ContentFilterException(sprintf('Response blocked by content filter: %s.', $finishReason));
+        }
+
+        throw new RuntimeException(sprintf('Response not supported, finish reason: %s.', $finishReason));
     }
 
     private function convertStream(ResponseInterface $response): Generator

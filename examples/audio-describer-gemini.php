@@ -18,7 +18,7 @@ if (empty($_ENV['GOOGLE_API_KEY'])) {
 }
 
 $platform = PlatformFactory::create($_ENV['GOOGLE_API_KEY']);
-$llm = new GoogleModel(GoogleModel::GEMINI_2_FLASH);
+$llm = new GoogleModel(GoogleModel::GEMINI_2_5_FLASH);
 
 $chain = new Chain(new PlatformModel($platform, $llm));
 $messages = new MessageBag(
