@@ -18,7 +18,7 @@ final class StructuredResponseTest extends TestCase
     #[Test]
     public function getContentWithArray(): void
     {
-        $mockResponse = $this->createMock(ResponseInterface::class);
+        $mockResponse = $this->createStub(ResponseInterface::class);
         $response = new StructuredModelResponse($mockResponse, $expected = ['foo' => 'bar', 'baz' => ['qux']]);
         self::assertSame($expected, $response->getContent());
     }
@@ -26,7 +26,7 @@ final class StructuredResponseTest extends TestCase
     #[Test]
     public function getContentWithObject(): void
     {
-        $mockResponse = $this->createMock(ResponseInterface::class);
+        $mockResponse = $this->createStub(ResponseInterface::class);
         $response = new StructuredModelResponse($mockResponse, $expected = (object) ['foo' => 'bar', 'baz' => ['qux']]);
         self::assertSame($expected, $response->getContent());
     }

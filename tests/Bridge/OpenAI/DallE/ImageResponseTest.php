@@ -24,7 +24,7 @@ final class ImageResponseTest extends TestCase
     public function itCreatesImagesResponse(): void
     {
         $base64Image = new Base64Image('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==');
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
         $generatedImagesResponse = new ImageModelResponse($responseMock, null, $base64Image);
 
         self::assertNull($generatedImagesResponse->revisedPrompt);
@@ -36,7 +36,7 @@ final class ImageResponseTest extends TestCase
     public function itCreatesImagesResponseWithRevisedPrompt(): void
     {
         $base64Image = new Base64Image('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==');
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
         $generatedImagesResponse = new ImageModelResponse($responseMock, 'revised prompt', $base64Image);
 
         self::assertSame('revised prompt', $generatedImagesResponse->revisedPrompt);
@@ -50,7 +50,7 @@ final class ImageResponseTest extends TestCase
         $image1 = new UrlImage('https://example');
         $image2 = new UrlImage('https://example2');
 
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
         $generatedImagesResponse = new ImageModelResponse($responseMock, null, $image1, $image2);
 
         self::assertCount(2, $generatedImagesResponse->getContent());

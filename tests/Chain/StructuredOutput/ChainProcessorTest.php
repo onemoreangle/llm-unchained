@@ -59,7 +59,7 @@ final class ChainProcessorTest extends TestCase
         $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
         $chainProcessor = new ChainProcessor($responseFormatFactory, $serializer);
 
-        $llm = $this->createMock(LanguageModel::class);
+        $llm = $this->createStub(LanguageModel::class);
         $input = new Input($llm, new MessageBag(), []);
 
         $chainProcessor->processInput($input);
@@ -98,7 +98,7 @@ final class ChainProcessorTest extends TestCase
         $input = new Input($llm, new MessageBag(), $options);
         $chainProcessor->processInput($input);
 
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
         $response = new TextModelResponse($responseMock, '{"some": "data"}');
 
         $output = new Output($llm, $response, new MessageBag(), $input->getOptions());
@@ -114,11 +114,11 @@ final class ChainProcessorTest extends TestCase
     public function processOutputWithoutResponseFormat(): void
     {
         $responseFormatFactory = new ConfigurableResponseFormatFactory();
-        $serializer = $this->createMock(SerializerInterface::class);
+        $serializer = $this->createStub(SerializerInterface::class);
         $chainProcessor = new ChainProcessor($responseFormatFactory, $serializer);
 
-        $llm = $this->createMock(LanguageModel::class);
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $llm = $this->createStub(LanguageModel::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
         $response = new TextModelResponse($responseMock, '');
 
         $output = new Output($llm, $response, new MessageBag(), []);

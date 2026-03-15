@@ -12,7 +12,7 @@ use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\JsonMockResponse;
 
 #[CoversClass(Wikipedia::class)]
-class WikipediaTest extends TestCase
+final class WikipediaTest extends TestCase
 {
     #[Test]
     public function searchWithResults(): void

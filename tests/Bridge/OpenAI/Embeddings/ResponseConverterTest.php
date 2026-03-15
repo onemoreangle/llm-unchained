@@ -18,7 +18,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 #[Small]
 #[UsesClass(Vector::class)]
 #[UsesClass(VectorModelResponse::class)]
-class ResponseConverterTest extends TestCase
+final class ResponseConverterTest extends TestCase
 {
     #[Test]
     public function itConvertsAResponseToAVectorResponse(): void

@@ -148,14 +148,14 @@ class ResponseConverter implements PlatformResponseConverter
      *     message: array{
      *         role: 'assistant',
      *         content: ?string,
-     *         tool_calls: array{
+     *         tool_calls: list<array{
      *             id: string,
      *             type: 'function',
      *             function: array{
      *                 name: string,
      *                 arguments: string
      *             },
-     *         },
+     *         }>,
      *         refusal: ?mixed
      *     },
      *     logprobs: string,
@@ -165,7 +165,7 @@ class ResponseConverter implements PlatformResponseConverter
     private function convertChoice(array $choice): Choice
     {
         if ('tool_calls' === $choice['finish_reason']) {
-            return new Choice(toolCalls: \array_map([$this, 'convertToolCall'], $choice['message']['tool_calls']));
+            return new Choice(toolCalls: \array_map($this->convertToolCall(...), $choice['message']['tool_calls']));
         }
 
         if (in_array($choice['finish_reason'], ['stop', 'length'], true)) {

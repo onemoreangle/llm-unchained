@@ -18,7 +18,7 @@ final class TextResponseTest extends TestCase
     #[Test]
     public function getContent(): void
     {
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
         $response = new TextModelResponse($responseMock, $expected = 'foo');
         self::assertSame($expected, $response->getContent());
     }

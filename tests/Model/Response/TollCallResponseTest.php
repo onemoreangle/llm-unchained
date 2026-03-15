@@ -25,14 +25,14 @@ final class TollCallResponseTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Response must have at least one tool call.');
 
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
         new ToolCallModelResponse($responseMock);
     }
 
     #[Test]
     public function getContent(): void
     {
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
         $response = new ToolCallModelResponse($responseMock, $toolCall = new ToolCall('ID', 'name', ['foo' => 'bar']));
         self::assertSame([$toolCall], $response->getContent());
     }

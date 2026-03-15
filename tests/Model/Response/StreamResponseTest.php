@@ -24,7 +24,7 @@ final class StreamResponseTest extends TestCase
             yield 'data2';
         })();
 
-        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock = $this->createStub(ResponseInterface::class);
 
         $response = new StreamModelResponse($responseMock, $generator);
         self::assertInstanceOf(Generator::class, $response->getContent());

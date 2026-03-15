@@ -27,7 +27,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 #[UsesClass(TextModelResponse::class)]
 #[UsesClass(ToolCall::class)]
 #[UsesClass(ToolCallModelResponse::class)]
-class ResponseConverterTest extends TestCase
+final class ResponseConverterTest extends TestCase
 {
     public function testConvertTextResponse(): void
     {
@@ -126,7 +126,7 @@ class ResponseConverterTest extends TestCase
 
         $httpResponse->expects($this->exactly(2))
             ->method('toArray')
-            ->willReturnCallback(function ($throw = true) {
+            ->willReturnCallback(function (bool $throw = true): array {
                 if ($throw) {
                     throw new class () extends Exception implements ClientExceptionInterface {
                         public function getResponse(): ResponseInterface

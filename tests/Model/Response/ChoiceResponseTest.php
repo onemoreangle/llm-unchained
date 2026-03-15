@@ -22,7 +22,7 @@ final class ChoiceResponseTest extends TestCase
     #[Test]
     public function choiceResponseCreation(): void
     {
-        $mockResponse = $this->createMock(ResponseInterface::class);
+        $mockResponse = $this->createStub(ResponseInterface::class);
         $choice1 = new Choice('choice1');
         $choice2 = new Choice(null);
         $choice3 = new Choice('choice3');
@@ -40,7 +40,7 @@ final class ChoiceResponseTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Response must have at least one choice.');
 
-        $mockResponse = $this->createMock(ResponseInterface::class);
+        $mockResponse = $this->createStub(ResponseInterface::class);
         new ChoiceModelResponse($mockResponse);
     }
 }

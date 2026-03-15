@@ -98,7 +98,7 @@ readonly class GeminiSchemaFactory extends Factory
         }
 
         if (isset($schema['required']) && is_array($schema['required'])) {
-            $result['required'] = array_values(array_filter($schema['required'], 'is_string'));
+            $result['required'] = array_values(array_filter($schema['required'], is_string(...)));
         }
 
         if (isset($schema['items']) && is_array($schema['items'])) {
@@ -136,7 +136,7 @@ readonly class GeminiSchemaFactory extends Factory
             }
         }
         if (isset($result['enum']) && is_array($result['enum'])) {
-            $result['enum'] = array_values(array_filter($result['enum'], 'is_string'));
+            $result['enum'] = array_values(array_filter($result['enum'], is_string(...)));
         }
 
         if (isset($propertySchema['properties']) && is_array($propertySchema['properties'])) {
@@ -146,7 +146,7 @@ readonly class GeminiSchemaFactory extends Factory
             ];
 
             if (isset($propertySchema['required']) && is_array($propertySchema['required'])) {
-                $nestedSchema['required'] = array_values(array_filter($propertySchema['required'], 'is_string'));
+                $nestedSchema['required'] = array_values(array_filter($propertySchema['required'], is_string(...)));
             }
 
             $transformedNested = $this->transformToGeminiSchema($nestedSchema);

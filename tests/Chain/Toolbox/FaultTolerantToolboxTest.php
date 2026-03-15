@@ -26,7 +26,7 @@ use PHPUnit\Framework\TestCase;
 #[UsesClass(ExecutionReference::class)]
 #[UsesClass(ToolNotFoundException::class)]
 #[UsesClass(ToolExecutionException::class)]
-class FaultTolerantToolboxTest extends TestCase
+final class FaultTolerantToolboxTest extends TestCase
 {
     #[Test]
     public function faultyToolExecution(): void

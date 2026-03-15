@@ -55,7 +55,7 @@ class GoogleRequestBodyProducer implements RequestBodyProducer, MessageVisitor, 
             $body['tools'] = [
                 [
                     'function_declarations' => array_map(
-                        fn ($metadata) => $this->metadata($metadata),
+                        $this->metadata(...),
                         $this->options['tools']
                     ),
                 ],

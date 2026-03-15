@@ -20,11 +20,11 @@ final class PlatformTestHandler implements ModelClient, ResponseConverter
     public int $createCalls = 0;
 
     public function __construct(
-        private readonly ?ModelResponseInterface $create = null,
+        private readonly ?LlmResponse $create = null,
     ) {
     }
 
-    public static function createPlatform(?ModelResponseInterface $create = null): Platform
+    public static function createPlatform(?LlmResponse $create = null): Platform
     {
         $handler = new self($create);
 

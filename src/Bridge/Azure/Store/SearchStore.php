@@ -31,7 +31,7 @@ readonly class SearchStore implements VectorStoreInterface
     public function add(VectorDocument ...$documents): void
     {
         $this->request('index', [
-            'value' => array_map([$this, 'convertToIndexableArray'], $documents),
+            'value' => array_map($this->convertToIndexableArray(...), $documents),
         ]);
     }
 
@@ -41,7 +41,7 @@ readonly class SearchStore implements VectorStoreInterface
             'vectorQueries' => [$this->buildVectorQuery($vector)],
         ]);
 
-        return array_map([$this, 'convertToVectorDocument'], $result['value']);
+        return array_map($this->convertToVectorDocument(...), $result['value']);
     }
 
     /**

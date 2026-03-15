@@ -23,7 +23,7 @@ use PHPUnit\Framework\TestCase;
 #[UsesClass(ExecutionReference::class)]
 #[UsesClass(MessageBag::class)]
 #[UsesClass(MissingModelSupport::class)]
-class ChainProcessorTest extends TestCase
+final class ChainProcessorTest extends TestCase
 {
     #[Test]
     public function processInputWithoutRegisteredToolsWillResultInNoOptionChange(): void
